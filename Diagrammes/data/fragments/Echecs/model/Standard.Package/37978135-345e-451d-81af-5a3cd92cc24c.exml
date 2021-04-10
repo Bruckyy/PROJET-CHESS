@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="echecs" version="4">
+  <OBJECT>
+    <ID name="echecs" mc="Standard.Package" uid="37978135-345e-451d-81af-5a3cd92cc24c"/>
+    <PID name="Echecs" mc="Standard.Project" uid="eef1c941-6067-4793-8e3f-e228dbfd7f71"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[echecs]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Piece" mc="Standard.Class" uid="2c7723c9-b1ea-4ea3-be93-51235520c645"/>
+        <COMPID name="Roi" mc="Standard.Class" uid="cbffdba0-d9e7-4bae-93bb-6b1713937c26"/>
+        <COMPID name="Reine" mc="Standard.Class" uid="0bb8a650-8993-4f75-b765-4611296951e0"/>
+        <COMPID name="Cavalier" mc="Standard.Class" uid="960d9cdc-6ab3-4ed1-849c-9a7cd8303b0c"/>
+        <COMPID name="Fou" mc="Standard.Class" uid="2e2a2e26-6c37-4675-be94-e404c055d0c1"/>
+        <COMPID name="Tour" mc="Standard.Class" uid="af10922c-510b-44bb-ac4e-57679cd389b8"/>
+        <COMPID name="Pion" mc="Standard.Class" uid="1f717241-521c-49df-910b-00a21c788f8c"/>
+        <COMPID name="Jeu" mc="Standard.Class" uid="7c6f63b2-afa9-4d8b-9dcb-13eb860f18f8"/>
+        <COMPID name="Echequier" mc="Standard.Class" uid="4450187e-5a18-4f9b-8d69-31758cd74e7b"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="Diagramme de classe echecs" mc="Standard.ClassDiagram" uid="1dd36f5b-8b37-434b-b2d3-e9ceda2ce581"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
