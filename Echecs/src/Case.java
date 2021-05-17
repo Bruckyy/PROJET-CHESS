@@ -1,53 +1,67 @@
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
-
-
 public class Case {
 
     private int colonne;
     private int ligne;
     private Piece piece;
 
+    /*	Constructeur vide	*/
     public Case()
     {
-    	this.piece.super();
-    	this.colonne = 0;
-    	this.ligne = 0;
     	
     }
     
-    public Case(int ligne, int colonne,Piece p) {
-    	
+    
+    /*	Constructeur	*/
+    public Case(int ligne, int colonne,Piece p) 
+    {
+    	this.ligne = ligne;
+    	this.colonne = colonne;
+    	this.piece = p;
+    }
+    
+    /*	Constructeur par copie	*/
+    public Case(Case c)
+    {
+    	this.colonne = c.getColonne();
+    	this.ligne = c.getLigne();
+    	this.piece = c.getPiece();
     }
 
-
-    public boolean CaseVide() {
+    /*	Retournes si case vide	*/
+    public boolean CaseVide() 
+    {
+    	return (this.getPiece() == null);
     }
 
-
-    public int getLigne() {
+    /*	Getters	*/
+    public int getLigne() 
+    {
+    	return this.ligne;
     }
 
-
-    public int getColonne() {
+    public int getColonne() 
+    {
+    	return this.colonne;
+    }
+    
+    /*	Setters	*/
+    public void setLigne(int p1) 
+    {
+    	this.ligne = p1;
     }
 
-    public void setLigne(int p1) {
+    public void setColonne(int p1) 
+    {
+    	this.colonne = p1;
     }
 
-
-    public void setColonne(int p1) {
+    public Piece getPiece() 
+    {
+    	return this.piece;
     }
 
-
-    public Piece getPiece() {
+    public void setPiece(Piece p1) 
+    {
+    	this.piece = p1;
     }
-
-
-    public void setPiece(Piece p1) {
-    }
-
-
-    public Case(int ligne, int colonne) {
-    }
-
 }
