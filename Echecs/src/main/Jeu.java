@@ -1,6 +1,4 @@
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
-
-
+package main;
 public class Jeu {
 
     public Echequier echequier;
