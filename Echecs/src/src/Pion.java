@@ -9,19 +9,19 @@ public class Pion extends Pieces implements Piece {
 	@Override
 	public Case getCase() {
 		// TODO Auto-generated method stub
-		return null;
+		return super.getCase();
 	}
 
 	@Override
 	public String getCouleur() {
 		// TODO Auto-generated method stub
-		return null;
+		return super.getCouleur();
 	}
 
 	@Override
 	public void setCase(Case newCase) {
 		// TODO Auto-generated method stub
-		
+		super.setCase(newCase);
 	}
 
 	@Override
