@@ -1,5 +1,7 @@
 package main;
 
+
+
 public class Case {
 
     private int colonne;
@@ -32,7 +34,7 @@ public class Case {
     /*	Retournes si case vide	*/
     public boolean CaseVide() 
     {
-    	return (this.getPiece() == null);
+    	return (this.piece == null);
     }
 
     /*	Getters	*/
@@ -65,5 +67,14 @@ public class Case {
     public void setPiece(Piece p1) 
     {
     	this.piece = p1;
+    }
+    
+    public String toString()
+    {
+    if (this.CaseVide())
+    {	
+    	return piece.toString();
+    }
+    return "0";
     }
 }
