@@ -28,9 +28,9 @@ public class Cavalier extends Pieces implements Piece {
 	}
 
 	@Override
-	public boolean verifDeplacement(Case cd, Case ca) {
+	public Case[] deplacementTab(Case cd, Case ca) {
 		// TODO Auto-generated method stub
-		return false;
+		return null;
 	}
 	
 	public String toString() {

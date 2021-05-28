@@ -1,7 +1,7 @@
 package main;
 public class Jeu {
 
-    public Echequier echequier;
+    private Echiquier echiquier;
 
     public static void save() {
     }

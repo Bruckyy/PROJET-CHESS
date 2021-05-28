@@ -32,7 +32,7 @@ public class Case {
     }
 
     /*	Retournes si case vide	*/
-    public boolean CaseVide() 
+    public boolean caseVide() 
     {
     	return (this.piece == null);
     }
@@ -71,7 +71,7 @@ public class Case {
     
     public String toString()
     {
-    if (this.CaseVide())
+    if (this.caseVide())
     {	
     	return piece.toString();
     }

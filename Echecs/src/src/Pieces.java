@@ -45,8 +45,11 @@ public abstract class Pieces implements Piece{
 		this.couleur = newCouleur;
 	}
 		
-
+	public boolean equals(Object o)
+	{
+		return (this.getCouleur() == ((Piece)o).getCouleur());
+	}
 	@Override
-	public  abstract boolean verifDeplacement(Case cd, Case ca);
+	public  abstract Case[] deplacementTab(Case cd, Case ca);
 	
 }
