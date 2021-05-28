@@ -45,7 +45,7 @@ public class Echiquier {
     	int i = 0;
     	while (i < deplacementTab.length - 1)
     	{
-    		if ((this.chercherCase(deplacementTab[i].getLigne(), deplacementTab[i].getColonne())).getPiece() != null)
+    		if ((this.chercherCase(deplacementTab[i].getLigne(), deplacementTab[i].getColonne())).caseVide())
     		{
     			i ++;
     		}
