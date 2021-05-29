@@ -47,6 +47,9 @@ public abstract class Pieces implements Piece{
 		
 	public boolean equals(Object o)
 	{
+		if(o==null) return false;
+		if(!(o.getClass()!=this.getClass())) return false;
+		
 		return (this.getCouleur() == ((Piece)o).getCouleur());
 	}
 	@Override
