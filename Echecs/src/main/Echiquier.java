@@ -1,4 +1,7 @@
 package main;
+import src.*;
+
+
 import java.util.*;
 
 
@@ -53,9 +56,31 @@ public class Echiquier {
     	return i == deplacementTab.length - 1;
     }
     
+    public ArrayList<Case >getBoard()
+    {
+    	return this.board;
+    }
+    
     public void init()
     {
     	
+    int j = 0;
+	int l = 1;
+    while (j < 8)
+    {
+    	int i = 0;
+    	int c = 1;
+    	while (i < 8)
+    	{
+    		this.board.add(new Case(l, c, null));
+    		i ++;
+    		c ++;
+    	}
+    	l ++;
+    	j ++;
+    }
+    
+    
     }
 
     public String toString() {

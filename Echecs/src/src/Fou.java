@@ -4,7 +4,10 @@ import main.Piece;
 
 public class Fou extends Pieces implements Piece {
 	
-
+	public Fou(Case casePiece, String couleur)
+	{
+		super(casePiece, couleur);
+	}
 	@Override
 	public Case getCase() {
 

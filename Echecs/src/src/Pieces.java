@@ -10,10 +10,15 @@ public abstract class Pieces implements Piece{
 	public Pieces()
 	{}
 	
-	public Pieces(String couleur, Case casePiece)
+	public Pieces(Case casePiece, String couleur)
 	{
 		this.couleur = couleur;
 		this.casePiece = casePiece;
+	}
+	
+	public Pieces(String couleur)
+	{
+		this.couleur = couleur;
 	}
 	
 	public Pieces(Pieces p)

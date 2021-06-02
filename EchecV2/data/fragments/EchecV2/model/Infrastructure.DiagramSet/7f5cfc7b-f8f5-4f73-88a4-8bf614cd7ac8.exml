@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="EchecV2" version="4">
+  <OBJECT>
+    <ID name="EchecV2" mc="Infrastructure.DiagramSet" uid="7f5cfc7b-f8f5-4f73-88a4-8bf614cd7ac8"/>
+    <PID name="EchecV2" mc="Standard.Project" uid="80e1bd0b-f1d3-4911-8a8f-506740187bf4"/>
+    <ATTRIBUTES>
+      <ATT name="Name"><![CDATA[EchecV2]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES></DEPENDENCIES>
+  </OBJECT>
+</EXT>

@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="echecv2" version="4">
+  <OBJECT>
+    <ID name="echecv2" mc="Standard.Package" uid="ccacffdb-230a-4da7-8c07-f95738a0a82b"/>
+    <PID name="EchecV2" mc="Standard.Project" uid="80e1bd0b-f1d3-4911-8a8f-506740187bf4"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[echecv2]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES></DEPENDENCIES>
+  </OBJECT>
+</EXT>

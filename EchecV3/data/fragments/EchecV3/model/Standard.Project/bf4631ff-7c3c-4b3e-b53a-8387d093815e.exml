@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="EchecV3" version="4">
+  <OBJECT>
+    <ID name="EchecV3" mc="Standard.Project" uid="bf4631ff-7c3c-4b3e-b53a-8387d093815e"/>
+    <ATTRIBUTES>
+      <ATT name="ProjectContext"></ATT>
+      <ATT name="ProjectDescr"></ATT>
+      <ATT name="Name"><![CDATA[EchecV3]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="Model">
+        <COMPID name="echecv3" mc="Standard.Package" uid="d8dccaa8-e243-4d62-b987-87e544f3b924"/>
+      </COMP>
+      <COMP relation="DiagramRoot">
+        <COMPID name="EchecV3" mc="Infrastructure.DiagramSet" uid="b92f59a7-72d9-41ec-b989-00ff9ff1e091"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

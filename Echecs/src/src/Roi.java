@@ -4,6 +4,11 @@ import main.*;
 
 public class Roi extends Pieces implements Piece {
 
+	
+	public Roi(Case casePiece, String couleur)
+	{
+		super(casePiece, couleur);
+	}
 	@Override
 	public Case getCase() {
 		// TODO Auto-generated method stub

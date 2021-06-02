@@ -3,7 +3,12 @@ import main.Case;
 import main.Piece;
 
 public class Cavalier extends Pieces implements Piece {
-
+	
+	
+	public Cavalier(Case casePiece, String couleur)
+	{
+		super(casePiece, couleur);
+	}
 	@Override
 	public Case getCase() {
 

@@ -5,7 +5,10 @@ import main.*;
 public class Reine extends Pieces implements Piece {
 
 
-
+	public Reine(Case casePiece, String couleur)
+	{
+		super(casePiece, couleur);
+	}
 	@Override
 	public Case getCase() {
 

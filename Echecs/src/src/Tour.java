@@ -7,9 +7,13 @@ public class Tour extends Pieces implements Piece {
 	
 	public Tour(Case casePiece, String couleur)
 	{
-		super(couleur, casePiece);
+		super(casePiece, couleur);
 	}
 	
+	public Tour(String couleur)
+	{
+		super(couleur);
+	}
 
 	@Override
 	public Case getCase() {
