@@ -120,10 +120,18 @@ public class Echiquier {
 
     public String toString() {
     	String s = "";
+    	int j = 1;
 		for (int i = 0; i < this.board.size(); i ++)
 		{
-			s += this.board.get(i) + " ; ";
+			s += this.board.get(i) + "  ";
+			if ((i + 1)%8 == 0 && i != 0)
+			{
+				s += "	|" + Integer.toString(j) + "\n";
+				j ++;
+			}
 		}
+		s += "----------------------\n";
+		s += "a   b  c  d  e  f   g  h";
 		
 		return s;
     }
