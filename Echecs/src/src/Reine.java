@@ -9,6 +9,11 @@ public class Reine extends Pieces implements Piece {
 	{
 		super(casePiece, couleur);
 	}
+	
+	public Reine(String couleur)
+	{
+		super(couleur);
+	}
 	@Override
 	public Case getCase() {
 

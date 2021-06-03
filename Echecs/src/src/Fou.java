@@ -8,6 +8,11 @@ public class Fou extends Pieces implements Piece {
 	{
 		super(casePiece, couleur);
 	}
+	
+	public Fou(String couleur)
+	{
+		super(couleur);
+	}
 	@Override
 	public Case getCase() {
 

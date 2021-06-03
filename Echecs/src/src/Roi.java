@@ -9,6 +9,12 @@ public class Roi extends Pieces implements Piece {
 	{
 		super(casePiece, couleur);
 	}
+	
+	public Roi(String couleur)
+	{
+		super(couleur);
+	}
+	
 	@Override
 	public Case getCase() {
 		// TODO Auto-generated method stub
@@ -41,7 +47,12 @@ public class Roi extends Pieces implements Piece {
 	
 	public String toString()
 	{
-		return "Roi";
+		if(this.getCouleur()=="Noir") {
+			return "♛";
+		}
+		else {
+			return "♕";
+		}
 	}
 
 }

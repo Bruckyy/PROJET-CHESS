@@ -4,7 +4,12 @@ import main.Piece;
 
 public class Pion extends Pieces implements Piece {
 	
+	private boolean aBouge;
 	
+	public Pion(String couleur)
+	{
+		super(couleur);
+	}
 
 	@Override
 	public Case getCase() {

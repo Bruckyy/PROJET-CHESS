@@ -9,6 +9,11 @@ public class Cavalier extends Pieces implements Piece {
 	{
 		super(casePiece, couleur);
 	}
+	
+	public Cavalier(String couleur)
+	{
+		super(couleur);
+	}
 	@Override
 	public Case getCase() {
 
