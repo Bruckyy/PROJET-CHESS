@@ -71,7 +71,7 @@ public class Case {
     
     public String toString()
     {
-    if (this.caseVide())
+    if (!(this.caseVide()))
     {	
     	return piece.toString();
     }
