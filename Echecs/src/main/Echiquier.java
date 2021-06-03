@@ -130,7 +130,7 @@ public class Echiquier {
 				j ++;
 			}
 		}
-		s += "----------------------\n";
+		s += "-------------------------\n";
 		s += "a   b  c  d  e  f   g  h";
 		
 		return s;
