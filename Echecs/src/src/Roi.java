@@ -51,7 +51,7 @@ public class Roi extends Pieces implements Piece {
 			return "♛";
 		}
 		else {
-			return "♕";
+			return "♔";
 		}
 	}
 

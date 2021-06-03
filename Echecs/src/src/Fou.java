@@ -72,7 +72,7 @@ public class Fou extends Pieces implements Piece {
 	}
 	
 	public String toString() {
-		if(this.getCouleur()=="Noir") {
+		if(this.getCouleur()=="noir") {
 			return "♝";
 		}
 		else {
