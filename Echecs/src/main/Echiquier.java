@@ -8,6 +8,8 @@ import java.util.*;
 public class Echiquier {
 	
     private ArrayList<Case> board = new ArrayList<>();
+    private String[] logsBlanc;
+    private String[] logsNoir;
     
     /*	retourne la case avec sa ligne et colonne correspondante */
     
@@ -15,6 +17,8 @@ public class Echiquier {
     {
     	this.init();
     }
+    
+    
     public Case chercherCase(int ligne, int colonne)
     {
     	ListIterator<Case> i = this.board.listIterator();
@@ -25,6 +29,8 @@ public class Echiquier {
     			}
 		return null; 
     }
+    
+    
     
     /*	retourne la case de la piece 
      *	avec son nom et sa couleur 
@@ -40,26 +46,47 @@ public class Echiquier {
     	return null; 
     }
     
+    
+    
+    
     /* 	Vérifies si le chemin de la pièce est libre
      *  pour des mouvement linéaires
      */
     public boolean cheminLibre(Case[] deplacementTab)
     {
     	int i = 0;
-    	while (i < deplacementTab.length - 1)
+    	while (i < deplacementTab.length)
     	{
     		if ((this.chercherCase(deplacementTab[i].getLigne(), deplacementTab[i].getColonne())).caseVide())
     		{
     			i ++;
     		}
     	}
-    	return i == deplacementTab.length - 1;
+    	return i == deplacementTab.length;
     }
+    
+    
+    
     
     public ArrayList<Case >getBoard()
     {
     	return this.board;
     }
+    
+    
+    public void deplacerPiece(Case casePiece, Case ca)
+    {
+    	if (cheminLibre(casePiece.getPiece().deplacementTab(casePiece, ca)))
+    	{
+    		ca.setPiece(casePiece.getPiece());
+    		casePiece.setPiece(null);    		
+    	}
+    	else
+    	{
+    		System.out.println("Déplacement impossible.");
+    	}
+    }
+    
     
     public void init()
     {
@@ -117,7 +144,9 @@ public class Echiquier {
     this.chercherCase(7, 7).setPiece(new Pion("noir"));
     this.chercherCase(7, 8).setPiece(new Pion("noir"));
     }
-
+ 
+    
+    
     public String toString() {
     	String s = "";
     	int j = 1;
