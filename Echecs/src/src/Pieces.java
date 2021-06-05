@@ -5,7 +5,7 @@ import main.*;
 public abstract class Pieces implements Piece{
 	
 	private String couleur;
-	private Case casePiece;
+
 	
 	public Pieces()
 	{}
@@ -13,7 +13,6 @@ public abstract class Pieces implements Piece{
 	public Pieces(Case casePiece, String couleur)
 	{
 		this.couleur = couleur;
-		this.casePiece = casePiece;
 	}
 	
 	public Pieces(String couleur)
@@ -21,10 +20,10 @@ public abstract class Pieces implements Piece{
 		this.couleur = couleur;
 	}
 	
-	public Pieces(Pieces p)
+	public Pieces(Piece p)
 	{
 		this.couleur = p.getCouleur();
-		this.casePiece = p.getCase();
+
 	}
 	
 	public String getCouleur()
@@ -32,17 +31,6 @@ public abstract class Pieces implements Piece{
 		return this.couleur;
 	}
 	
-	public Case getCase()
-	{
-		return this.casePiece;
-	}
-	
-
-	@Override
-	public void setCase(Case newCase)
-	{
-		this.casePiece = newCase;
-	}
 
 	@Override
 	public void setCouleur(String newCouleur)
@@ -58,6 +46,9 @@ public abstract class Pieces implements Piece{
 		return (this.getCouleur() == ((Piece)o).getCouleur());
 	}
 	@Override
-	public  abstract Case[] deplacementTab(Case cd, Case ca);
+	public Case[] deplacementTab(Case cd, Case ca)
+	{
+		return null;
+	};
 	
 }

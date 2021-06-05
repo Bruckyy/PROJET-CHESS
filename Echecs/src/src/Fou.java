@@ -13,11 +13,6 @@ public class Fou extends Pieces implements Piece {
 	{
 		super(couleur);
 	}
-	@Override
-	public Case getCase() {
-
-		return super.getCase();
-	}
 
 	@Override
 	public String getCouleur() {
@@ -25,11 +20,6 @@ public class Fou extends Pieces implements Piece {
 		return super.getCouleur();
 	}
 
-	@Override
-	public void setCase(Case newCase) {
-		super.setCase(newCase);
-		
-	}
 
 	@Override
 	public void setCouleur(String newCouleur) {

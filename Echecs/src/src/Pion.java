@@ -13,12 +13,12 @@ public class Pion extends Pieces implements Piece {
 	{
 		super(couleur);
 	}
-
-	@Override
-	public Case getCase() {
-		// TODO Auto-generated method stub
-		return super.getCase();
+	
+	public Pion(Pieces p)
+	{
+		super(p.getCouleur());
 	}
+
 
 	@Override
 	public String getCouleur() {
@@ -26,11 +26,6 @@ public class Pion extends Pieces implements Piece {
 		return super.getCouleur();
 	}
 
-	@Override
-	public void setCase(Case newCase) {
-		// TODO Auto-generated method stub
-		super.setCase(newCase);
-	}
 
 	@Override
 	public void setCouleur(String newCouleur) {
@@ -64,6 +59,7 @@ public class Pion extends Pieces implements Piece {
 				Case[] c = new Case[2];
 				c[0] = new Case(cd.getLigne() + 1, cd.getColonne(), null);
 				c[1] = new Case(cd.getLigne() + 2, cd.getColonne(), null);
+				this.aBouge = true;
 				return c;
 		}
 		
@@ -100,6 +96,7 @@ public class Pion extends Pieces implements Piece {
 				Case[] c = new Case[2];
 				c[0] = new Case(cd.getLigne() - 1, cd.getColonne(), null);
 				c[1] = new Case(cd.getLigne() - 2, cd.getColonne(), null);
+				this.aBouge = true;
 				return c;
 		}
 		
@@ -128,5 +125,6 @@ public class Pion extends Pieces implements Piece {
 			return "♙";
 		}
 	}
+
 
 }

@@ -1,6 +1,6 @@
 package main;
 
-
+import src.*;
 
 public class Case {
 

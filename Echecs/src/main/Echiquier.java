@@ -55,6 +55,10 @@ public class Echiquier {
     public boolean cheminLibre(Case[] deplacementTab)
     {
     	int i = 0;
+    	if (deplacementTab == null)
+    	{
+    		return false;
+    	}
     	while (i < deplacementTab.length)
     	{
     		if ((this.chercherCase(deplacementTab[i].getLigne(), deplacementTab[i].getColonne())).caseVide())

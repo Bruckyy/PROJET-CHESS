@@ -4,10 +4,8 @@ package main;
 
 public interface Piece {
 
-    public Case getCase();
     public String getCouleur();
     
-    public void setCase(Case newCase);
     public void setCouleur(String newCouleur);
 
     public Case[] deplacementTab(Case cd, Case ca);

@@ -16,19 +16,10 @@ public class Tour extends Pieces implements Piece {
 	}
 
 	@Override
-	public Case getCase() {
-		return super.getCase();
-	}
-
-	@Override
 	public String getCouleur() {
 		return super.getCouleur();
 	}
 
-	@Override
-	public void setCase(Case newCase) {
-		super.setCase(newCase);
-	}
 
 	@Override
 	public void setCouleur(String newCouleur) {
@@ -44,9 +35,9 @@ public class Tour extends Pieces implements Piece {
 		/* La tour se deplace en ligne (haut en bas, bas en haut) */
 		if ((ca.getLigne() == cd.getLigne()) && (ca.getColonne() != cd.getColonne()))
 		{
-			Case[] c = new Case[Math.abs(ca.getColonne() - cd.getColonne())];
+			Case[] c = new Case[Math.abs(ca.getLigne() - cd.getLigne())];
 			/* La tour monte */
-			if (ca.getLigne() - cd.getLigne() < 0)
+			if (cd.getLigne() - ca.getLigne() < 0)
 			{
 				for (int i = 0; i < cd.getLigne() - ca.getLigne(); i++)
 				{
@@ -57,7 +48,7 @@ public class Tour extends Pieces implements Piece {
 			/* La tour descend */
 			else
 			{
-				for (int i = 0; i < cd.getLigne() - ca.getLigne(); i ++)
+				for (int i = 0; i < ca.getLigne() - cd.getLigne(); i ++)
 				{
 					c[i] = new Case(cd.getLigne() - (i + 1), cd.getColonne(), null);
 				}
@@ -103,5 +94,6 @@ public class Tour extends Pieces implements Piece {
 			return "♖";
 		}
 	}
+
 
 }
