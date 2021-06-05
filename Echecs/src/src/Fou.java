@@ -40,35 +40,49 @@ public class Fou extends Pieces implements Piece {
 	public Case[] deplacementTab(Case cd, Case ca) {
 		// TODO Auto-generated method stub
 		if (ca.equals(cd)) return null;
+		
+		int z=0;
 		/* Diagonale Haute Droite*/
-		Case[] dhd = new Case[Math.abs(cd.getLigne()-8)];
-		for(int i=1;i<Math.abs(cd.getLigne()-8);i++) {
-			if(cd.caseVide()==true) {
-				dhd[i] = new Case(i+cd.getLigne(),i+cd.getColonne(),null);
-			}
-			else {
-				break;
-			}
+		if(cd.getLigne()==0) {
+		Case[] dhd = new Case[Math.abs(cd.getLigne()-ca.getLigne())];
+		for(int i=1;i<Math.abs(cd.getLigne())-ca.getLigne();i++) {
+				dhd[z] = new Case(i+cd.getLigne(),i+cd.getColonne(),null);
+				z++;
 		}
-		
+		return dhd;
+		}
+		z=0;
 		/* Diagonale Haut Gauche */
-		Case[] dhg = new Case[Math.abs(cd.getColonne()-8)];
-		for(int i=1;i<Math.abs(cd.getLigne()-8)+1;i++) {
-			if(cd.caseVide()==true) {
-				dhg[i] = new Case(cd.getLigne()-i,cd.getColonne()+i,null);
-			}
-			else {
-				break;
-			}
+		if(cd.getLigne()==0) {
+		Case[] dhg = new Case[Math.abs(cd.getLigne()-ca.getLigne())];
+		for(int i=1;i<Math.abs(cd.getLigne()-ca.getLigne());i++) {
+				dhg[z] = new Case(cd.getLigne()-i,cd.getColonne()+i,null);
+				z++;
 		}
+		return dhg;
+		}
+		z=0;
 		/* Diagonale Bas Droite */
-		Case[] dbd = new Case[Math.abs(cd.getLigne()-8)];
+		if(cd.getLigne()==0){
+		Case[] dbd = new Case[Math.abs(cd.getLigne()-ca.getLigne())];
+		for(int i=1;i<Math.abs(cd.getLigne()-ca.getLigne());i++) {
+			dbd[z] = new Case(cd.getLigne()+i,cd.getColonne()-i,null);
+			z++;
+			return dbd;
+	        }
+		}
+		z=0;
 		/* Diagonale Bas Gauche */
-		Case[] dbg = new Case[Math.abs(cd.getColonne()-8)];
+		if(cd.getLigne()==0){
+		Case[] dbg = new Case[Math.abs(cd.getLigne()-ca.getLigne())];
+		for(int i=1; i<Math.abs(cd.getLigne()-ca.getLigne());i++){
+			dbg[z]= new Case(cd.getLigne()-i,cd.getColonne()-i,null);
+			z++;
+		}
+		return dbg;
+		}
+		return null;
 		
-		
-		Case[] c = new Case[dhd.length+dhg.length+dbd.length+dbg.length];
-		return c;
 	}
 	
 	public String toString() {
