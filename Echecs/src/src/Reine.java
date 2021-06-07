@@ -30,99 +30,103 @@ public class Reine extends Pieces implements Piece {
 	}
 
 	@Override
-	public Case[] deplacementTab(Case cd, Case ca) {
+	public boolean cheminLibre(Echiquier plateau, Case cd, Case ca)  {
 		
-		if (ca.equals(cd)) return null;
-		int z=0;
+		if (ca.equals(cd)) return false;
+
 		
 		/* Diagonale Haute Droite*/
 		if(ca.getLigne()>cd.getLigne() && ca.getColonne()>cd.getColonne()) {
-		Case[] dhd = new Case[Math.abs(cd.getLigne()-ca.getLigne())];
+			if((Math.abs(ca.getColonne()-cd.getColonne())-(Math.abs(ca.getLigne()-cd.getLigne()))!=0))return false;
+				
 		for(int i=1;i<Math.abs(cd.getLigne())-ca.getLigne();i++) {
-				dhd[z] = new Case(i+cd.getLigne(),i+cd.getColonne(),null);
-				z++;
+				if(plateau.chercherCase(i+cd.getLigne(),i+cd.getColonne()).caseVide()==false) return false;
+				
+				
 		}
-		return dhd;
+		return true;
 		}
-		
+
 		/* Diagonale Haut Gauche */
-		z=0;
 		if(ca.getLigne()<cd.getLigne() && ca.getColonne()<cd.getColonne()) {
-		Case[] dhg = new Case[Math.abs(cd.getLigne()-ca.getLigne())];
+			if((Math.abs(ca.getColonne()-cd.getColonne())-(Math.abs(ca.getLigne()-cd.getLigne()))!=0))return false;
+
 		for(int i=1;i<Math.abs(cd.getLigne()-ca.getLigne());i++) {
-				dhg[z] = new Case(cd.getLigne()-i,cd.getColonne()+i,null);
-				z++;
+				if(plateau.chercherCase(cd.getLigne()-i,cd.getColonne()+i).caseVide()==false) return false;
+
 		}
-		return dhg;
+		return true;
 		}
 
 		/* Diagonale Bas Droite */
-		z=0;
 		if(ca.getColonne() > cd.getColonne() && ca.getLigne() < cd.getLigne()){
-		Case[] dbd = new Case[Math.abs(cd.getLigne()-ca.getLigne())];
+			if((Math.abs(ca.getColonne()-cd.getColonne())-(Math.abs(ca.getLigne()-cd.getLigne()))!=0))return false;
+
 		for(int i=1;i<Math.abs(cd.getLigne()-ca.getLigne());i++) {
-			dbd[z] = new Case(cd.getLigne()+i,cd.getColonne()-i,null);
-			z++;
+			if(plateau.chercherCase(cd.getLigne()+i,cd.getColonne()-i).caseVide()==false) return false;
+
 	        }
-		return dbd;
+		return true;
 		}
-		
+
 		/* Diagonale Bas Gauche */
-		z=0;
 		if(ca.getColonne() < cd.getColonne() && ca.getLigne() > cd.getLigne()){
-		Case[] dbg = new Case[Math.abs(cd.getLigne()-ca.getLigne())];
+			if((Math.abs(ca.getColonne()-cd.getColonne())-(Math.abs(ca.getLigne()-cd.getLigne()))!=0))return false;
+
 		for(int i=1; i<Math.abs(cd.getLigne()-ca.getLigne());i++){
-			dbg[z]= new Case(cd.getLigne()-i,cd.getColonne()-i,null);
-			z++;
+			if(plateau.chercherCase(cd.getLigne()-i,cd.getColonne()-i).caseVide()==false)return false;
+
 		}
-		return dbg;
+		return true;
 		}
 		
 		/* Ligne Droite */
-		z=0;
+
 		if(ca.getColonne()>cd.getColonne() &&  ca.getLigne()==cd.getLigne()) {
 			Case[] ld = new Case[Math.abs(cd.getColonne()-ca.getColonne())];
 			for(int i=1;i<Math.abs(cd.getColonne()-ca.getColonne());i++) {
-				ld[z]= new Case(cd.getLigne(),cd.getColonne()+i,null);
-				z++;
+				if(plateau.chercherCase(cd.getLigne(),cd.getColonne()+i).caseVide()==false)return false;
+
 			}
-			return ld;
+			return true;
 		}
 		
 		/* Ligne Gauche*/
-		z=0;
+
 		if(ca.getColonne()<cd.getColonne() && ca.getLigne()==cd.getLigne()) {
 			Case[] lg = new Case[Math.abs(ca.getColonne()-cd.getColonne())];
 			for(int i=1;i<Math.abs(ca.getColonne()-cd.getColonne());i++) {
-				lg[z]= new Case(cd.getLigne(),cd.getColonne()-i,null);
-				z++;
+				if(plateau.chercherCase(cd.getLigne(),cd.getColonne()-i).caseVide()==false)return false;
+
 			}
-			return lg;
+			return true;
 		}
 		
 		/*Ligne Haut*/
-		z=0;
+
 		if(ca.getLigne()>cd.getLigne() && ca.getColonne()==cd.getLigne()) {
 			Case[] lh= new Case[Math.abs(ca.getLigne()-cd.getLigne())];
 			for(int i=1;i<Math.abs(ca.getLigne()-cd.getLigne());i++) {
-				lh[z] = new Case(cd.getLigne()+i,cd.getColonne(),null);
-				z++;
+				if(plateau.chercherCase(cd.getLigne()+i,cd.getColonne()).caseVide()==false)return false;
+
 			}
-			return lh;
+			return true;
 		}
 		
 		/*Ligne Bas */
-		z=0;
+
 		if(ca.getLigne()<cd.getLigne() && ca.getColonne()==cd.getColonne()) {
 			Case[] lb = new Case[Math.abs(ca.getLigne()-cd.getLigne())];
 			for(int i=1;i<Math.abs(ca.getLigne()-cd.getLigne());i++) {
-				lb[z]= new Case(cd.getLigne()-i,cd.getColonne(),null);
-				z++;
+				if(plateau.chercherCase(cd.getLigne()-i,cd.getColonne()).caseVide()==false)return false;
+
 			}
-			return lb;
+			return true;
 		}
 		
-		return null;
+		/* return par défaut */
+		
+		return false;
 	}
 	
 	public String toString() {

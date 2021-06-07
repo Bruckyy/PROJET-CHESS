@@ -1,5 +1,6 @@
 package src;
 import main.Case;
+import main.Echiquier;
 import main.Piece;
 
 public class Fou extends Pieces implements Piece {
@@ -27,56 +28,55 @@ public class Fou extends Pieces implements Piece {
 	}
 
 	@Override
-	public Case[] deplacementTab(Case cd, Case ca) {
+	public boolean cheminLibre(Echiquier plateau, Case cd, Case ca)  {
 		// TODO Auto-generated method stub
-		if (ca.equals(cd)) return null;
-		
-		int z=0;
+		if (ca.equals(cd)) return false;
+
 		/* Diagonale Haute Droite*/
 		if(ca.getLigne()>cd.getLigne() && ca.getColonne()>cd.getColonne()) {
-			if((Math.abs(ca.getColonne()-cd.getColonne())-(Math.abs(ca.getLigne()-cd.getLigne()))!=0))return null;
+			if((Math.abs(ca.getColonne()-cd.getColonne())-(Math.abs(ca.getLigne()-cd.getLigne()))!=0))return false;
 				
-		Case[] dhd = new Case[Math.abs(cd.getLigne()-ca.getLigne())];
 		for(int i=1;i<Math.abs(cd.getLigne())-ca.getLigne();i++) {
-				dhd[z] = new Case(i+cd.getLigne(),i+cd.getColonne(),null);
-				z++;
+				if(plateau.chercherCase(i+cd.getLigne(),i+cd.getColonne()).caseVide()==false) return false;
+				
+				
 		}
-		return dhd;
+		return true;
 		}
-		z=0;
+
 		/* Diagonale Haut Gauche */
 		if(ca.getLigne()<cd.getLigne() && ca.getColonne()<cd.getColonne()) {
-			if((Math.abs(ca.getColonne()-cd.getColonne())-(Math.abs(ca.getLigne()-cd.getLigne()))!=0))return null;
-		Case[] dhg = new Case[Math.abs(cd.getLigne()-ca.getLigne())];
+			if((Math.abs(ca.getColonne()-cd.getColonne())-(Math.abs(ca.getLigne()-cd.getLigne()))!=0))return false;
+
 		for(int i=1;i<Math.abs(cd.getLigne()-ca.getLigne());i++) {
-				dhg[z] = new Case(cd.getLigne()-i,cd.getColonne()+i,null);
-				z++;
+				if(plateau.chercherCase(cd.getLigne()-i,cd.getColonne()+i).caseVide()==false) return false;
+
 		}
-		return dhg;
+		return true;
 		}
-		z=0;
+
 		/* Diagonale Bas Droite */
 		if(ca.getColonne() > cd.getColonne() && ca.getLigne() < cd.getLigne()){
-			if((Math.abs(ca.getColonne()-cd.getColonne())-(Math.abs(ca.getLigne()-cd.getLigne()))!=0))return null;
-		Case[] dbd = new Case[Math.abs(cd.getLigne()-ca.getLigne())];
+			if((Math.abs(ca.getColonne()-cd.getColonne())-(Math.abs(ca.getLigne()-cd.getLigne()))!=0))return false;
+
 		for(int i=1;i<Math.abs(cd.getLigne()-ca.getLigne());i++) {
-			dbd[z] = new Case(cd.getLigne()+i,cd.getColonne()-i,null);
-			z++;
+			if(plateau.chercherCase(cd.getLigne()+i,cd.getColonne()-i).caseVide()==false) return false;
+
 	        }
-		return dbd;
+		return true;
 		}
-		z=0;
+
 		/* Diagonale Bas Gauche */
 		if(ca.getColonne() < cd.getColonne() && ca.getLigne() > cd.getLigne()){
-			if((Math.abs(ca.getColonne()-cd.getColonne())-(Math.abs(ca.getLigne()-cd.getLigne()))!=0))return null;
-		Case[] dbg = new Case[Math.abs(cd.getLigne()-ca.getLigne())];
+			if((Math.abs(ca.getColonne()-cd.getColonne())-(Math.abs(ca.getLigne()-cd.getLigne()))!=0))return false;
+
 		for(int i=1; i<Math.abs(cd.getLigne()-ca.getLigne());i++){
-			dbg[z]= new Case(cd.getLigne()-i,cd.getColonne()-i,null);
-			z++;
+			if(plateau.chercherCase(cd.getLigne()-i,cd.getColonne()-i).caseVide()==false)return false;
+
 		}
-		return dbg;
+		return true;
 		}
-		return null;
+		return false;
 		
 	}
 	
