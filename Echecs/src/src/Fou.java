@@ -34,6 +34,8 @@ public class Fou extends Pieces implements Piece {
 		int z=0;
 		/* Diagonale Haute Droite*/
 		if(ca.getLigne()>cd.getLigne() && ca.getColonne()>cd.getColonne()) {
+			if((Math.abs(ca.getColonne()-cd.getColonne())-(Math.abs(ca.getLigne()-cd.getLigne()))!=0))return null;
+				
 		Case[] dhd = new Case[Math.abs(cd.getLigne()-ca.getLigne())];
 		for(int i=1;i<Math.abs(cd.getLigne())-ca.getLigne();i++) {
 				dhd[z] = new Case(i+cd.getLigne(),i+cd.getColonne(),null);
@@ -44,6 +46,7 @@ public class Fou extends Pieces implements Piece {
 		z=0;
 		/* Diagonale Haut Gauche */
 		if(ca.getLigne()<cd.getLigne() && ca.getColonne()<cd.getColonne()) {
+			if((Math.abs(ca.getColonne()-cd.getColonne())-(Math.abs(ca.getLigne()-cd.getLigne()))!=0))return null;
 		Case[] dhg = new Case[Math.abs(cd.getLigne()-ca.getLigne())];
 		for(int i=1;i<Math.abs(cd.getLigne()-ca.getLigne());i++) {
 				dhg[z] = new Case(cd.getLigne()-i,cd.getColonne()+i,null);
@@ -54,6 +57,7 @@ public class Fou extends Pieces implements Piece {
 		z=0;
 		/* Diagonale Bas Droite */
 		if(ca.getColonne() > cd.getColonne() && ca.getLigne() < cd.getLigne()){
+			if((Math.abs(ca.getColonne()-cd.getColonne())-(Math.abs(ca.getLigne()-cd.getLigne()))!=0))return null;
 		Case[] dbd = new Case[Math.abs(cd.getLigne()-ca.getLigne())];
 		for(int i=1;i<Math.abs(cd.getLigne()-ca.getLigne());i++) {
 			dbd[z] = new Case(cd.getLigne()+i,cd.getColonne()-i,null);
@@ -64,6 +68,7 @@ public class Fou extends Pieces implements Piece {
 		z=0;
 		/* Diagonale Bas Gauche */
 		if(ca.getColonne() < cd.getColonne() && ca.getLigne() > cd.getLigne()){
+			if((Math.abs(ca.getColonne()-cd.getColonne())-(Math.abs(ca.getLigne()-cd.getLigne()))!=0))return null;
 		Case[] dbg = new Case[Math.abs(cd.getLigne()-ca.getLigne())];
 		for(int i=1; i<Math.abs(cd.getLigne()-ca.getLigne());i++){
 			dbg[z]= new Case(cd.getLigne()-i,cd.getColonne()-i,null);
