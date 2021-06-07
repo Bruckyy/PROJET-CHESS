@@ -1,5 +1,6 @@
 package src;
 import main.Case;
+import main.Echiquier;
 import main.Piece;
 
 public class Cavalier extends Pieces implements Piece {
@@ -28,11 +29,7 @@ public class Cavalier extends Pieces implements Piece {
 		super.setCouleur(newCouleur);
 	}
 
-	@Override
-	public Case[] deplacementTab(Case cd, Case ca) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 	
 	public String toString() {
 		if(this.getCouleur()=="noir") {
@@ -41,5 +38,51 @@ public class Cavalier extends Pieces implements Piece {
 		else {
 			return "♘";
 		}
+	}
+
+	@Override
+	public boolean cheminLibre(Echiquier plateau, Case cd, Case ca) 
+	{
+		/* vers le bas
+		 * 
+		 */
+		if (ca.getLigne() == cd.getLigne() - 2 && (ca.getColonne() == cd.getColonne() - 1 || ca.getColonne() == cd.getColonne() + 1))
+		{
+			return plateau.chercherCase(ca.getLigne(), ca.getColonne()).caseVide();
+		}
+		
+		/* vers le haut
+		 * 
+		 */
+		
+		if (ca.getLigne() == cd.getLigne() + 2 && (ca.getColonne() == cd.getColonne() - 1 || ca.getColonne() == cd.getColonne() + 1 ))
+		{
+			return plateau.chercherCase(ca.getLigne(), ca.getColonne()).caseVide();
+		}
+		
+		/* vers la gauche
+		 * 
+		 */
+		
+		if (ca.getColonne() == cd.getColonne() - 2 && (ca.getLigne() == cd.getLigne() - 1 || ca.getLigne() == cd.getLigne() + 1))
+		{
+			return plateau.chercherCase(ca.getLigne(), ca.getColonne()).caseVide();
+		}
+		
+		/* vers la droite
+		 * 
+		 */
+		
+		if (ca.getColonne() == cd.getColonne() + 2 && (ca.getLigne() == cd.getLigne() - 1 || ca.getLigne() == cd.getLigne() + 1))
+		{
+			return plateau.chercherCase(ca.getLigne(), ca.getColonne()).caseVide();
+		}
+		
+		return false;
+	}
+
+	@Override
+	public boolean deplacementPossible(Echiquier plateau, Case cd, Case ca) {
+		return cheminLibre(plateau, cd, ca) && !(ca.equals(cd)) && cd.getPiece() != null; 
 	}
 }

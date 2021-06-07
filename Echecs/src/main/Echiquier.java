@@ -46,32 +46,6 @@ public class Echiquier {
     	return null; 
     }
     
-    
-    
-    
-    /* 	Vérifies si le chemin de la pièce est libre
-     *  pour des mouvement linéaires
-     */
-    public boolean cheminLibre(Case[] deplacementTab)
-    {
-    	int i = 0;
-    	if (deplacementTab == null)
-    	{
-    		return false;
-    	}
-    	while (i < deplacementTab.length)
-    	{
-    		if ((this.chercherCase(deplacementTab[i].getLigne(), deplacementTab[i].getColonne())).caseVide())
-    		{
-    			i ++;
-    		}
-    	}
-    	return i == deplacementTab.length;
-    }
-    
-    
-    
-    
     public ArrayList<Case >getBoard()
     {
     	return this.board;
@@ -153,7 +127,7 @@ public class Echiquier {
     
     
     public String toString() {
-    	String s = "";
+    	String s = "a   b  c  d  e  f   g  h \n";
     	int j = 1;
 		for (int i = 0; i < this.board.size(); i ++)
 		{
@@ -165,7 +139,6 @@ public class Echiquier {
 			}
 		}
 		s += "-------------------------\n";
-		s += "a   b  c  d  e  f   g  h";
 		
 		return s;
     }
