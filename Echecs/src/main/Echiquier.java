@@ -80,14 +80,15 @@ public class Echiquier {
     
     public void deplacerPiece(Case casePiece, Case ca)
     {
-    	if (cheminLibre(casePiece.getPiece().deplacementTab(casePiece, ca)))
+    	if (casePiece.getPiece().deplacementPossible(this, casePiece, ca) && casePiece.getPiece() != null) 
     	{
     		ca.setPiece(casePiece.getPiece());
-    		casePiece.setPiece(null);    		
+    		casePiece.setPiece(null);
     	}
+    	
     	else
     	{
-    		System.out.println("Déplacement impossible.");
+    		System.out.println("Dépalcement impossible !");
     	}
     }
     

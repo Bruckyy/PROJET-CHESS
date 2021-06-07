@@ -46,9 +46,7 @@ public abstract class Pieces implements Piece{
 		return (this.getCouleur() == ((Piece)o).getCouleur());
 	}
 	@Override
-	public Case[] deplacementTab(Case cd, Case ca)
-	{
-		return null;
-	};
+	public abstract boolean deplacementPossible(Echiquier plateau, Case cd, Case ca);
+
 	
 }

@@ -28,60 +28,8 @@ public class Tour extends Pieces implements Piece {
 	}
 
 	@Override
-	public Case[] deplacementTab(Case cd, Case ca) {
-		
-		if (ca.equals(cd)) return null;
-		
-		/* La tour se deplace en ligne (haut en bas, bas en haut) */
-		if ((ca.getLigne() == cd.getLigne()) && (ca.getColonne() != cd.getColonne()))
-		{
-			Case[] c = new Case[Math.abs(ca.getLigne() - cd.getLigne())];
-			/* La tour monte */
-			if (cd.getLigne() - ca.getLigne() < 0)
-			{
-				for (int i = 0; i < cd.getLigne() - ca.getLigne(); i++)
-				{
-					c[i] = new Case(cd.getLigne() + i + 1, cd.getColonne(), null);
-				}
-			}
-			
-			/* La tour descend */
-			else
-			{
-				for (int i = 0; i < ca.getLigne() - cd.getLigne(); i ++)
-				{
-					c[i] = new Case(cd.getLigne() - (i + 1), cd.getColonne(), null);
-				}
-			}
-			return c;
-		}
-		
-		/* La tour se déplace en colonne ( de droite à gauche, de gauche à droite ) */
-		if ((ca.getColonne() == cd.getColonne()) && (ca.getLigne() != cd.getLigne()))
-		{
-			Case[] c = new Case[Math.abs(ca.getLigne() - cd.getLigne())];
-			/* La tour se déplace à gauche */
-			if (ca.getColonne() - cd.getColonne() < 0)
-			{
-				for (int i = 0; i < cd.getColonne() - ca.getColonne(); i ++)
-				{
-					c[i] = new Case(cd.getLigne(), cd.getColonne() - (i + 1), null);
-				}
-			}
-			else
-			{
-				for (int i = 0; i < cd.getColonne() - ca.getColonne(); i ++)
-				{
-					c[i] = new Case(cd.getLigne(), cd.getColonne() + i + 1, null);
-				}
-			}
-			return c;
-		}
-		/* Selon le type de déplacement on retourne un tableau du chemin de la pièce non inclus
-		 * sa case de départ
-		 */
-		return null;
-		
+	public boolean deplacementPossible(Echiquier plateau, Case cd, Case ca) {
+		return cheminLibre(plateau, cd, ca) && !(ca.equals(cd)) && cd.getPiece() != null; 
 	}
 	
 	
@@ -93,6 +41,75 @@ public class Tour extends Pieces implements Piece {
 		else {
 			return "♖";
 		}
+	}
+
+	@Override
+	public boolean cheminLibre(Echiquier plateau, Case cd, Case ca) 
+	{
+		/* Déplacement de haut en bas
+		 * 
+		 */
+		if (ca.getLigne() == cd.getLigne())
+		{
+			int j = Math.abs(cd.getColonne() - ca.getColonne());
+			
+			if (ca.getColonne() < cd.getColonne())
+			{
+				
+				for (int i = 0; i < j; i ++)
+				{
+					if (plateau.chercherCase(cd.getLigne(), cd.getLigne() - (i + 1)).getPiece() != null)
+					{
+						return false;
+					}
+				}
+			}
+			
+			if (ca.getColonne() > cd.getColonne())
+			{
+				
+				for (int i = 0; i < j; i ++)
+				{
+					if (plateau.chercherCase(cd.getLigne(), cd.getLigne() - (i - 1)).getPiece() != null)
+					{
+						return false;
+					}
+				}
+			}
+		}
+		
+		/* Déplacement de droite à gauche et inversement
+		 * 
+		 */
+		if (ca.getColonne() == cd.getColonne())
+		{
+			int j = Math.abs(ca.getLigne() - cd.getLigne());
+			
+			if (ca.getLigne() < cd.getLigne())
+			{
+				
+				for (int i = 0; i < j; i ++)
+				{
+					if (plateau.chercherCase(cd.getColonne(), cd.getColonne() - (i + 1)).getPiece() != null)
+					{
+						return false;
+					}
+				}
+			}
+		
+			
+			if (ca.getLigne() > cd.getLigne())
+			{
+				for (int i = 0; i < j; i ++)
+				{
+					if (plateau.chercherCase(cd.getLigne(), cd.getLigne() - (i - 1)).getPiece() != null)
+					{
+						return false;
+					}
+				}
+			}
+		}
+		return true;
 	}
 
 

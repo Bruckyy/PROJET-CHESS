@@ -1,5 +1,6 @@
 package src;
 import main.Case;
+import main.Echiquier;
 import main.Piece;
 
 public class Pion extends Pieces implements Piece {
@@ -33,84 +34,7 @@ public class Pion extends Pieces implements Piece {
 		
 	}
 
-	@Override
-	public Case[] deplacementTab(Case cd, Case ca) {
-		
-		/* Si le pion a déjà bougé, mouvements de 1 seulement
-		 */
-		if (aBouge && this.getCouleur() == "blanc") 
-		{	
-			Case[] c = new Case[1];
-			/*Si le pion avance de 1 case en avant
-			 */
-			if (ca.getColonne() == cd.getColonne() && cd.getLigne() + 1 == ca.getLigne())
-			{			
-				c[0] = new Case(ca.getLigne(), ca.getColonne(), null);
-				return c;
-			}
-		}
-		
-		
-		/* Si le pion n'a pas bougé, il peut avancer de 2
-		* cases
-		*/
-		if (ca.getColonne() == cd.getColonne() && ca.getLigne() == cd.getLigne() + 2)
-		{
-				Case[] c = new Case[2];
-				c[0] = new Case(cd.getLigne() + 1, cd.getColonne(), null);
-				c[1] = new Case(cd.getLigne() + 2, cd.getColonne(), null);
-				this.aBouge = true;
-				return c;
-		}
-		
-		
-		/* Si le pion avance en mangeant
-		 */
-		if ((ca.getColonne() == cd.getColonne() - 1 || ca.getColonne() == cd.getColonne() + 1) && cd.getLigne() + 1 == ca.getLigne())
-		{	
-			Case[] c = new Case[1];
-			c[0] = new Case(ca.getLigne(), ca.getColonne(), null);
-			return c;
-		}	
-		
-		/* Si le pion a déjà bougé, mouvements de 1 seulement
-		 */
-		if (aBouge && this.getCouleur() == "noir") 
-		{	
-			Case[] c = new Case[1];
-			/*Si le pion avance de 1 case en avant
-			 */
-			if (ca.getColonne() == cd.getColonne() && cd.getLigne() - 1 == ca.getLigne())
-			{			
-				c[0] = new Case(ca.getLigne(), ca.getColonne(), null);
-				return c;
-			}
-		}
-		
-		
-		/* Si le pion n'a pas bougé, il peut avancer de 2
-		* cases
-		*/
-		if (ca.getColonne() == cd.getColonne() && ca.getLigne() == cd.getLigne() - 2)
-		{
-				Case[] c = new Case[2];
-				c[0] = new Case(cd.getLigne() - 1, cd.getColonne(), null);
-				c[1] = new Case(cd.getLigne() - 2, cd.getColonne(), null);
-				this.aBouge = true;
-				return c;
-		}
-		
-		
-		/* Si le pion avance en mangeant
-		 */
-		if ((ca.getColonne() == cd.getColonne() - 1 || ca.getColonne() == cd.getColonne() + 1) && cd.getLigne() - 1 == ca.getLigne())
-		{	
-			Case[] c = new Case[1];
-			c[0] = new Case(ca.getLigne(), ca.getColonne(), null);
-			return c;
-		}	
-		return null;
-	}
+
 	
 	public void setAbouge(boolean statue)
 	{
@@ -126,5 +50,91 @@ public class Pion extends Pieces implements Piece {
 		}
 	}
 
+	@Override
+	public boolean cheminLibre(Echiquier plateau, Case cd, Case ca) {
+		if (this.getCouleur() == "blanc")
+		{
+			if (ca.getLigne() == cd.getLigne() + 2)
+			{
+				if(!aBouge)	
+				{
+					if (plateau.chercherCase(cd.getLigne() + 1, cd.getColonne()).caseVide() && plateau.chercherCase(cd.getLigne() + 2, cd.getColonne()).caseVide())
+					{
+						this.aBouge = true;
+						return true;
+					}
+				}
+				else
+				{
+					return false;
+				}
+			}
+			
+			if (ca.getLigne() == cd.getLigne() + 1)
+			{
+				if (plateau.chercherCase(cd.getLigne() + 1, cd.getColonne()).caseVide())
+				{
+					this.aBouge = true;
+					return true;
+				}
+			}
+			
+			if (ca.getLigne() == cd.getLigne() + 1 && (ca.getColonne() == cd.getColonne() + 1 || ca.getColonne() == cd.getColonne() - 1))
+			{
+				if ((plateau.chercherCase(cd.getLigne() + 1, cd.getColonne() + 1).caseVide()) || (plateau.chercherCase(cd.getLigne() - 1, cd.getColonne() - 1).caseVide()))
+				{
+					this.aBouge = true;
+					return true;
+				}
+			}
+		}
+		
+		if (this.getCouleur() == "noir")
+		{
+			if (ca.getLigne() == cd.getLigne() - 2)
+			{
+				if(!aBouge)	
+				{
+					if (plateau.chercherCase(cd.getLigne() - 1, cd.getColonne()).caseVide() && plateau.chercherCase(cd.getLigne() - 2, cd.getColonne()).caseVide())
+					{
+						this.aBouge = true;
+						return true;
+					}
+				}
+				else
+				{
+					return false;
+				}
+			}
+			
+			if (ca.getLigne() == cd.getLigne() - 1)
+			{
+				if (plateau.chercherCase(cd.getLigne() - 1, cd.getColonne()).caseVide())
+				{
+					this.aBouge = true;
+					return true;
+				}
+			}
+			
+			if (ca.getLigne() == cd.getLigne() - 1 && (ca.getColonne() == cd.getColonne() + 1 || ca.getColonne() == cd.getColonne() - 1))
+			{
+				if ((plateau.chercherCase(cd.getLigne() - 1, cd.getColonne() + 1).caseVide()) || (plateau.chercherCase(cd.getLigne() - 1, cd.getColonne() - 1).caseVide()))
+				{
+					this.aBouge = true;
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 
+	@Override
+	public boolean deplacementPossible(Echiquier plateau, Case cd, Case ca)
+	{
+		return cheminLibre(plateau, cd, ca) && !(ca.equals(cd)) && cd.getPiece() != null;
+	}
 }
+	
+
+
+
