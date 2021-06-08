@@ -1,7 +1,7 @@
 package src;
 import main.*;
 
-
+@SuppressWarnings("unused")
 public class Reine extends Pieces implements Piece {
 
 

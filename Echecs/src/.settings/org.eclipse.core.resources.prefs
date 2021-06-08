@@ -1,10 +1,11 @@
 eclipse.preferences.version=1
 encoding//main/Case.java=UTF-8
 encoding//main/Echiquier.java=UTF-8
-encoding//main/TestEchiquier.java=UTF-8
+encoding//main/main.java=UTF-8
 encoding//src/Cavalier.java=UTF-8
 encoding//src/Fou.java=UTF-8
 encoding//src/Pion.java=UTF-8
 encoding//src/Reine.java=UTF-8
 encoding//src/Roi.java=UTF-8
 encoding//src/Tour.java=UTF-8
+encoding/sauvegarde.txt=UTF-8

@@ -50,6 +50,8 @@ public abstract class Pieces implements Piece{
 	}
 	@Override
 	public abstract boolean deplacementPossible(Echiquier plateau, Case cd, Case ca);
+	
+	public abstract boolean cheminLibre(Echiquier plateau, Case cd, Case ca);
 
 	
 }

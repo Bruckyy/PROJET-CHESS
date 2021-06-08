@@ -11,9 +11,13 @@ public class Echiquier {
     
     /*	retourne la case avec sa ligne et colonne correspondante */
     
-    public Echiquier()
+    public Echiquier(String mode)
+    {
+    if (mode.contentEquals("c"))
     {
     	this.init();
+    }	
+
     }
     
     
@@ -38,9 +42,13 @@ public class Echiquier {
     	ListIterator<Case> i = this.board.listIterator();
     	while (i.hasNext()) {
     		Case c = i.next();
-    		if (c.getPiece().getNom() == nomPiece && c.getPiece().getCouleur() == couleur)
-    			return c;
-    			}
+    		if (c.getPiece() != null)
+    		{
+    			if (c.getPiece().getNom() == nomPiece && c.getPiece().getCouleur() == couleur)
+        			return c;
+        			}
+    		}
+    		
     	return null; 
     }
     
@@ -69,10 +77,14 @@ public class Echiquier {
     	
     	for (int i = 0 ; i < pieces.size(); i ++)
     	{
-    		if (pieces.get(i).getPiece().deplacementPossible(this, this.chercherCase(pieces.get(i).getLigne(), pieces.get(i).getColonne()), caseRoi))
+    		if (pieces.get(i).getPiece() != null) 
     		{
-    			return true;
+    			if (pieces.get(i).getPiece().deplacementPossible(this, this.chercherCase(pieces.get(i).getLigne(), pieces.get(i).getColonne()), caseRoi))
+        		{
+        			return true;
+        		}
     		}
+    		
     	}
     	return false;
     }

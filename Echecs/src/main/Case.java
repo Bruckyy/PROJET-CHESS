@@ -2,6 +2,7 @@ package main;
 
 import src.*;
 
+@SuppressWarnings("unused")
 public class Case {
 
     private int colonne;

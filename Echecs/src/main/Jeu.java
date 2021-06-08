@@ -6,19 +6,96 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
-
+@SuppressWarnings("unused")
 public class Jeu {
 
     private Echiquier echiquier;
+    private String turn;
+    private Scanner sc = new Scanner(System.in);
     
-    public Jeu() {}
+    public Jeu() {
+    	this.init();
+    	this.affichage();
+    }
     
-    public Jeu(Echiquier ech) {
+    public Jeu(Echiquier ech, String turn) {
     	this.echiquier=ech;
+    	this.turn = turn;
     	}
     
-    public void setEchiquier(Echiquier ech) {this.echiquier=ech;}
-    public Echiquier getEchiquier() {return this.echiquier;}
+    public void setTurn(String turn) {
+    	this.turn = turn;
+    }
+    
+    
+    public void setEchiquier(Echiquier ech) {
+    	this.echiquier=ech;
+    }
+    
+    public Echiquier getEchiquier() {
+    	return this.echiquier;
+    }
+    
+    public String getTurn() {
+    	return this.turn;
+    }
+    
+    public void init()
+    {
+    	Scanner sc = new Scanner(System.in);
+    	System.out.println("Choisissez votre mode de jeu : classique, berger (c/b).\n");
+    	String mode = sc.nextLine();
+    	
+    	
+    	if (mode.contentEquals("c")) {
+    	System.out.println("Vous avez choisi le mode classique.");
+    	}
+    	
+    	this.echiquier = new Echiquier(mode);
+    	this.turn = "blanc";
+  
+    }
+    
+    public void affichage()
+    {
+    	System.out.println(this.echiquier.toString());
+    	System.out.println("Tour: " + this.turn);
+    }
+    
+    public void entrerCoup()
+    {
+
+    	System.out.println("Votre coup (cd,ca): ");
+    	String coup = sc.nextLine();
+    	String cd = String.valueOf(coup.charAt(0)) + String.valueOf(coup.charAt(1));
+    	String ca = String.valueOf(coup.charAt(3)) + String.valueOf(coup.charAt(4));
+    	int cdLigne = this.conversion(cd)[1];
+    	int cdColonne = this.conversion(cd)[0];
+    	int caLigne = this.conversion(ca)[1];
+    	int caColonne = this.conversion(ca)[0];
+    	
+    	this.echiquier.deplacerPiece(this.echiquier.chercherCase(cdLigne, cdColonne), this.echiquier.chercherCase(caLigne, caColonne));  
+    
+    }
+    
+    public int[] conversion(String coupEntree)
+    {
+    	int[] tabCase = new int[2];
+    	
+    	int j = 1;
+    	for (int i = 97; i < 105; i ++)
+    	{
+    		if (coupEntree.charAt(0) == ((char) i))
+        	{
+        		tabCase[0] = j;
+        	}
+    		j ++;
+    	}
+    	
+    	tabCase[1] = (int) coupEntree.charAt(1) - 48;
+    	return tabCase;
+    }
+    
     
     
     public void save(String nomFichier) {
