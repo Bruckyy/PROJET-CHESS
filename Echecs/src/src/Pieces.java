@@ -5,30 +5,33 @@ import main.*;
 public abstract class Pieces implements Piece{
 	
 	private String couleur;
+	private String nom;
 
 	
 	public Pieces()
 	{}
 	
-	public Pieces(Case casePiece, String couleur)
+	public Pieces(String couleur, String nom)
 	{
 		this.couleur = couleur;
-	}
-	
-	public Pieces(String couleur)
-	{
-		this.couleur = couleur;
+		this.nom = nom;
 	}
 	
 	public Pieces(Piece p)
 	{
 		this.couleur = p.getCouleur();
+		this.nom = p.getNom();
 
 	}
 	
 	public String getCouleur()
 	{
 		return this.couleur;
+	}
+	
+	public String getNom()
+	{
+		return this.nom;
 	}
 	
 

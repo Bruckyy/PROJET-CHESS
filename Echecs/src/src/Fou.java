@@ -5,21 +5,20 @@ import main.Piece;
 
 public class Fou extends Pieces implements Piece {
 	
-	public Fou(Case casePiece, String couleur)
+	public Fou(String couleur, String nom)
 	{
-		super(casePiece, couleur);
+		super(couleur, nom);
 	}
 	
-	public Fou(String couleur)
-	{
-		super(couleur);
-	}
-
-	@Override
 	public String getCouleur() {
-
 		return super.getCouleur();
 	}
+	
+	public String getNom()
+	{
+		return super.getNom();
+	}
+
 
 
 	@Override
@@ -87,5 +86,11 @@ public class Fou extends Pieces implements Piece {
 		else {
 			return "♗";
 		}
+	}
+
+	@Override
+	public boolean deplacementPossible(Echiquier plateau, Case cd, Case ca) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

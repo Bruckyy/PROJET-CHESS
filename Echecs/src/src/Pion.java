@@ -10,22 +10,21 @@ public class Pion extends Pieces implements Piece {
 	public Pion()
 	{}
 	
-	public Pion(String couleur)
+	public Pion(String couleur, String nom)
 	{
-		super(couleur);
+		super(couleur, nom);
 	}
 	
-	public Pion(Pieces p)
-	{
-		super(p.getCouleur());
-	}
-
-
-	@Override
 	public String getCouleur() {
-		// TODO Auto-generated method stub
 		return super.getCouleur();
 	}
+	
+	public String getNom()
+	{
+		return super.getNom();
+	}
+
+
 
 
 	@Override
@@ -133,8 +132,8 @@ public class Pion extends Pieces implements Piece {
 	{
 		return cheminLibre(plateau, cd, ca) && !(ca.equals(cd)) && cd.getPiece() != null;
 	}
+
 }
-	
 
 
 

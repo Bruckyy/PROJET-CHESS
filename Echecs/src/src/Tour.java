@@ -3,35 +3,26 @@ import main.*;
 
 
 public class Tour extends Pieces implements Piece {
-
 	
-	public Tour(Case casePiece, String couleur)
+	public Tour(String couleur, String nom)
 	{
-		super(casePiece, couleur);
+		super(couleur, nom);
 	}
 	
-	public Tour(String couleur)
-	{
-		super(couleur);
-	}
-
-	@Override
 	public String getCouleur() {
 		return super.getCouleur();
 	}
-
+	
+	public String getNom()
+	{
+		return super.getNom();
+	}
 
 	@Override
 	public void setCouleur(String newCouleur) {
 		super.setCouleur(newCouleur);
 		
 	}
-
-	@Override
-	public boolean deplacementPossible(Echiquier plateau, Case cd, Case ca) {
-		return cheminLibre(plateau, cd, ca) && !(ca.equals(cd)) && cd.getPiece() != null; 
-	}
-	
 	
 	
 	public String toString() {
@@ -111,6 +102,13 @@ public class Tour extends Pieces implements Piece {
 		}
 		return true;
 	}
+	
+	@Override
+	public boolean deplacementPossible(Echiquier plateau, Case cd, Case ca) {
+		return cheminLibre(plateau, cd, ca) && !(ca.equals(cd)) && cd.getPiece() != null; 
+	}
+
+
 
 
 }

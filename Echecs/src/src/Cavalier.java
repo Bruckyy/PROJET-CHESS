@@ -6,30 +6,25 @@ import main.Piece;
 public class Cavalier extends Pieces implements Piece {
 	
 	
-	public Cavalier(Case casePiece, String couleur)
+	public Cavalier(String couleur, String nom)
 	{
-		super(casePiece, couleur);
+		super(couleur, nom);
 	}
 	
-	public Cavalier(String couleur)
-	{
-		super(couleur);
-	}
-
-	@Override
 	public String getCouleur() {
-
 		return super.getCouleur();
 	}
-
+	
+	public String getNom()
+	{
+		return super.getNom();
+	}
 
 
 	@Override
 	public void setCouleur(String newCouleur) {
 		super.setCouleur(newCouleur);
 	}
-
-
 	
 	public String toString() {
 		if(this.getCouleur()=="noir") {
