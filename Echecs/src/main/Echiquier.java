@@ -159,7 +159,8 @@ public class Echiquier {
     
     
     public String toString() {
-    	String s = "    A	   B	  C	   D	   E	   F	   G	  H\n";
+    	String s = "    A	   B	  C	   D	   E	   F	   G	  H\n"
+    			+ "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n";
     	int j = 1;
 		for (int i = 0; i < this.board.size(); i ++)
 		{
