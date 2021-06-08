@@ -75,6 +75,6 @@ public class Case {
     {	
     	return piece.toString();
     }
-    return "▭";
+    return " ";
     }
 }

@@ -19,4 +19,6 @@ public interface Piece {
     public boolean cheminLibre(Echiquier plateau, Case cd, Case ca);
     
     public String toString();
+
+	public String getNom();
 }
