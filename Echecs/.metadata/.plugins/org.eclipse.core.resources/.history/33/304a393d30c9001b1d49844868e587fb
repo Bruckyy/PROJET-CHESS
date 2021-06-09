@@ -105,7 +105,6 @@ public class Jeu {
         try {
             System.out.println("Sauvegarde : "+nomFichier);
             BufferedWriter bw = Files.newBufferedWriter(Paths.get(nomFichier));
-            bw.write(this.getTurn()+"\n");
             for(int x=8;x>0;x--) {
             	for(int y=1;y<8;y++) {
             		String result= this.getEchiquier().chercherCase(x,y).toString()+" ";
