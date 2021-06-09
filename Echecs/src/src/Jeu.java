@@ -96,7 +96,19 @@ public class Jeu {
     	if (coup.contentEquals("q"))
     	{
     		this.stop = false;
-    		System.out.println("Partie terminÃ©e.");
+    		System.out.println("Voulez vous sauvegarder ? [oui/non]");
+			Scanner input = new Scanner(System.in);
+			String resp = input.next();
+			
+			if(resp.contentEquals("oui")) {
+				System.out.println("Entrez le nom du fichier");
+				String nom = input.next();
+				this.save(nom);
+			}
+			
+    		System.out.println("Partie terminée.");
+    		input.close();
+    		
     	}
     	else
     	{
@@ -164,7 +176,7 @@ public class Jeu {
     
     public void save(String nomFichier) {
         try {
-            System.out.println("Sauvegarde : "+nomFichier);
+            System.out.println("Sauvegarde fichier : "+nomFichier+".txt");
             BufferedWriter bw = Files.newBufferedWriter(Paths.get(nomFichier));
             bw.write(this.getTurn()+"\n");
             for(int x=8;x>0;x--) {
