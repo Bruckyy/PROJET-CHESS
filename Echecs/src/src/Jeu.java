@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
+import src.*;
 public class Jeu {
 
     private Echiquier echiquier;
@@ -118,6 +119,58 @@ public class Jeu {
             System.err.println(e);
         }
     }
-    public void restore(String nomFichier) {}
+    public Jeu restore(String nomFichier) {
+    	try {
+    		BufferedReader br = Files.newBufferedReader(Paths.get(nomFichier));
+    		String[] ligne;
+    		int i=0;
+    		Echiquier ech = new Echiquier(new ArrayList<Case>());
+    		String tour = br.readLine();
+    		
+    		ligne = br.readLine().split(" ");
+    		while(ligne!=null) {
+    			if(ligne[i]=="♟") {
+    				Case c = new Case(2,3,new Pieces("blanc", "pion"));
+    			}
+    			if(ligne[i]=="♙") {
+    				
+    			}
+    			if(ligne[i]=="♜") {
+    				
+    			}
+    			if(ligne[i]=="♖") {
+    				
+    			}
+    			if(ligne[i]=="♞") {
+    				
+    			}
+    			if(ligne[i]=="♘") {
+    				
+    			}
+    			if(ligne[i]=="♝") {
+    				
+    			}
+    			if(ligne[i]=="♗") {
+    				
+    			}
+    			if(ligne[i]=="♛") {
+    				
+    			}
+    			if(ligne[i]=="♕") {
+    				
+    			}
+    			if(ligne[i]=="♚") {
+    				
+    			}
+    			if(ligne[i]=="♔") {
+    				
+    			}
+    			i++;
+    		}
+    		
+    	}catch(IOException e) {
+    		System.err.println(e);
+    	}
+    }
     
 }
