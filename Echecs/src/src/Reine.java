@@ -132,7 +132,7 @@ public class Reine extends Pieces implements Piece {
 			return true;
 		}
 		
-		/* return par défaut */
+		/* return par dÃ©faut */
 		
 		return false;
 	}

@@ -26,17 +26,17 @@ public class Tour extends Pieces implements Piece {
 	
 	public String toString() {
 		if(this.getCouleur()=="noir") {
-			return "♜";
+			return "\u265c";
 		}
 		else {
-			return "♖";
+			return "\u2656";
 		}
 	}
 
 	@Override
 	public boolean cheminLibre(Echiquier plateau, Case cd, Case ca) 
 	{
-		/* Déplacement de haut en bas
+		/* DÃ©placement de haut en bas
 		 * 
 		 */
 		if (ca.getLigne() == cd.getLigne())
@@ -73,7 +73,7 @@ public class Tour extends Pieces implements Piece {
 			}
 		}
 		
-		/* Déplacement de droite à gauche et inversement
+		/* DÃ©placement de droite Ã  gauche et inversement
 		 * 
 		 */
 		if (ca.getColonne() == cd.getColonne())

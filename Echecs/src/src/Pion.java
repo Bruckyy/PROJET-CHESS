@@ -2,7 +2,7 @@ package src;
 
 public class Pion extends Pieces implements Piece {
 	
-	private boolean aBouge = false;
+	private int aBouge = 0;
 	
 	public Pion()
 	{}
@@ -30,12 +30,6 @@ public class Pion extends Pieces implements Piece {
 		
 	}
 
-
-	
-	public void setAbouge(boolean statue)
-	{
-		this.aBouge = statue;
-	}
 	
 	public String toString() {
 		if(this.getCouleur()=="noir") {
@@ -52,11 +46,11 @@ public class Pion extends Pieces implements Piece {
 		{
 			if (ca.getLigne() == cd.getLigne() + 2)
 			{
-				if(!aBouge)	
+				if(aBouge < 2)	
 				{
 					if (plateau.chercherCase(cd.getLigne() + 1, cd.getColonne()).caseVide() && plateau.chercherCase(cd.getLigne() + 2, cd.getColonne()).caseVide())
 					{
-						this.aBouge = true;
+						this.aBouge += 1;
 						return true;
 					}
 				}
@@ -70,7 +64,7 @@ public class Pion extends Pieces implements Piece {
 			{
 				if (plateau.chercherCase(cd.getLigne() + 1, cd.getColonne()).caseVide())
 				{
-					this.aBouge = true;
+					this.aBouge += 1;
 					return true;
 				}
 			}
@@ -79,7 +73,7 @@ public class Pion extends Pieces implements Piece {
 			{
 				if ((plateau.chercherCase(cd.getLigne() + 1, cd.getColonne() + 1).caseVide()) || (plateau.chercherCase(cd.getLigne() - 1, cd.getColonne() - 1).caseVide()))
 				{
-					this.aBouge = true;
+					this.aBouge += 1;
 					return true;
 				}
 			}
@@ -89,11 +83,11 @@ public class Pion extends Pieces implements Piece {
 		{
 			if (ca.getLigne() == cd.getLigne() - 2)
 			{
-				if(!aBouge)	
+				if(aBouge < 2)	
 				{
 					if (plateau.chercherCase(cd.getLigne() - 1, cd.getColonne()).caseVide() && plateau.chercherCase(cd.getLigne() - 2, cd.getColonne()).caseVide())
 					{
-						this.aBouge = true;
+						this.aBouge += 1;
 						return true;
 					}
 				}
@@ -107,7 +101,7 @@ public class Pion extends Pieces implements Piece {
 			{
 				if (plateau.chercherCase(cd.getLigne() - 1, cd.getColonne()).caseVide())
 				{
-					this.aBouge = true;
+					this.aBouge += 1;
 					return true;
 				}
 			}
@@ -116,7 +110,7 @@ public class Pion extends Pieces implements Piece {
 			{
 				if ((plateau.chercherCase(cd.getLigne() - 1, cd.getColonne() + 1).caseVide()) || (plateau.chercherCase(cd.getLigne() - 1, cd.getColonne() - 1).caseVide()))
 				{
-					this.aBouge = true;
+					this.aBouge += 1;
 					return true;
 				}
 			}

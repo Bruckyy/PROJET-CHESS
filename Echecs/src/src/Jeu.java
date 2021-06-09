@@ -96,7 +96,7 @@ public class Jeu {
     	if (coup.contentEquals("q"))
     	{
     		this.stop = false;
-    		System.out.println("Partie terminée.");
+    		System.out.println("Partie terminÃ©e.");
     	}
     	else
     	{
@@ -110,7 +110,7 @@ public class Jeu {
     	int caLigne = this.conversion(ca)[1];
     	int caColonne = this.conversion(ca)[0];
     	
-    	while (this.echiquier.chercherCase(cdLigne, caColonne).getPiece().getCouleur() != this.turn || !(this.echiquier.mat("blanc")) || !(this.echiquier.mat("noir")) || 
+    	while (this.echiquier.chercherCase(cdLigne, caColonne).getPiece().getCouleur() != this.turn || (!(this.echiquier.mat("blanc")) && this.turn == "noir") || (!(this.echiquier.mat("noir")) && this.turn == "blanc") || 
     			(this.echiquier.deplacementValide(this.echiquier.chercherCase(cdLigne, cdColonne), this.echiquier.chercherCase(caLigne, caColonne))== false))
     	{
 
@@ -191,40 +191,40 @@ public class Jeu {
     		ligne = br.readLine().split(" ");
     		while(ligne!=null) {
     			for(int j=1;j<(ligne.length)+1;j++) {
-    			if(ligne[i]=="â™Ÿ") {
+    			if(ligne[i]=="Ã¢â„¢Å¸") {
     				Case a = new Case(i,j,new Pion("noir", "pion"));
     			}
-    			if(ligne[i]=="â™™") {
+    			if(ligne[i]=="Ã¢â„¢â„¢") {
     				Case b = new Case(i,j,new Pion("blanc", "pion"));
     			}
-    			if(ligne[i]=="â™œ") {
+    			if(ligne[i]=="Ã¢â„¢Å“") {
     				Case c = new Case(i,j,new Tour("noir","tour"));
     			}
-    			if(ligne[i]=="â™–") {
+    			if(ligne[i]=="Ã¢â„¢â€“") {
     				Case d = new Case(i,j,new Tour("blanc","tour"));
     			}
-    			if(ligne[i]=="â™ž") {
+    			if(ligne[i]=="Ã¢â„¢Å¾") {
     				Case e = new Case(i,j,new Cavalier("noir","cavalier"));
     			}
-    			if(ligne[i]=="â™˜") {
+    			if(ligne[i]=="Ã¢â„¢Ëœ") {
     				Case f = new Case(i,j,new Cavalier("blanc","cavalier"));
     			}
-    			if(ligne[i]=="â™�") {
+    			if(ligne[i]=="Ã¢â„¢ï¿½") {
     				Case g = new Case(i,j,new Fou("noir","fou"));
     			}
-    			if(ligne[i]=="â™—") {
+    			if(ligne[i]=="Ã¢â„¢â€”") {
     				Case h = new Case(i,j,new Fou("blanc","fou"));
     			}
-    			if(ligne[i]=="â™›") {
+    			if(ligne[i]=="Ã¢â„¢â€º") {
     				Case k = new Case(i,j,new Reine("noir","reine"));
     			}
-    			if(ligne[i]=="â™•") {
+    			if(ligne[i]=="Ã¢â„¢â€¢") {
     				Case l = new Case(i,j,new Reine("blanc","reine"));
     			}
-    			if(ligne[i]=="â™š") {
+    			if(ligne[i]=="Ã¢â„¢Å¡") {
     				Case m = new Case(i,j,new Roi("noir","roi"));
     			}
-    			if(ligne[i]=="â™”") {
+    			if(ligne[i]=="Ã¢â„¢â€�") {
     				Case n = new Case(i,j,new Roi("blanc","roi"));
     			}
     			else {
