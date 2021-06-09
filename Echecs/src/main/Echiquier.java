@@ -16,6 +16,11 @@ public class Echiquier {
     if (mode.contentEquals("c"))
     {
     	this.init();
+    }
+    
+    if (mode.contentEquals("t"))
+    {
+    	this.initTour();
     }	
 
     }
@@ -166,6 +171,28 @@ public class Echiquier {
     this.chercherCase(7, 6).setPiece(new Pion("noir", "pion"));
     this.chercherCase(7, 7).setPiece(new Pion("noir", "pion"));
     this.chercherCase(7, 8).setPiece(new Pion("noir", "pion"));
+    }
+    
+    public void initTour()
+    {
+    	 int j = 0;
+    		int l = 1;
+    	    while (j < 8)
+    	    {
+    	    	int i = 0;
+    	    	int c = 1;
+    	    	while (i < 8)
+    	    	{
+    	    		this.board.add(new Case(l, c, null));
+    	    		i ++;
+    	    		c ++;
+    	    	}
+    	    	l ++;
+    	    	j ++;
+    	    }
+    	    
+    	    this.chercherCase(4, 4).setPiece(new Tour("blanc", "tour"));
+    	    this.chercherCase(4, 5).setPiece(new Tour("noir", "tour"));;
     }
  
     

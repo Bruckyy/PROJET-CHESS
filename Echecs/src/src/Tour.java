@@ -42,14 +42,19 @@ public class Tour extends Pieces implements Piece {
 		 */
 		if (ca.getLigne() == cd.getLigne())
 		{
+			
 			int j = Math.abs(cd.getColonne() - ca.getColonne());
+			if (j == 1)
+			{
+				 return (!(ca.equals(cd)));									
+			}
 			
 			if (ca.getColonne() < cd.getColonne())
 			{
 				
 				for (int i = 0; i < j; i ++)
 				{
-					if (plateau.chercherCase(cd.getLigne(), cd.getLigne() - (i + 1)).getPiece() != null)
+					if (plateau.chercherCase(cd.getLigne(), cd.getColonne() - (i + 1)).getPiece() != null)
 					{
 						return false;
 					}
@@ -61,7 +66,7 @@ public class Tour extends Pieces implements Piece {
 				
 				for (int i = 0; i < j; i ++)
 				{
-					if (plateau.chercherCase(cd.getLigne(), cd.getLigne() - (i - 1)).getPiece() != null)
+					if (plateau.chercherCase(cd.getLigne(), cd.getColonne() + (i + 1)).getPiece() != null)
 					{
 						return false;
 					}
@@ -76,12 +81,17 @@ public class Tour extends Pieces implements Piece {
 		{
 			int j = Math.abs(ca.getLigne() - cd.getLigne());
 			
+			if (j == 1)
+			{
+				 return (!(ca.equals(cd)));									
+			}
+			
 			if (ca.getLigne() < cd.getLigne())
 			{
 				
 				for (int i = 0; i < j; i ++)
 				{
-					if (plateau.chercherCase(cd.getColonne(), cd.getColonne() - (i + 1)).getPiece() != null)
+					if (plateau.chercherCase(cd.getLigne()  - (i + 1), cd.getColonne()).getPiece() != null)
 					{
 						return false;
 					}
@@ -93,7 +103,7 @@ public class Tour extends Pieces implements Piece {
 			{
 				for (int i = 0; i < j; i ++)
 				{
-					if (plateau.chercherCase(cd.getLigne(), cd.getLigne() - (i - 1)).getPiece() != null)
+					if (plateau.chercherCase(cd.getLigne()  + (i + 1), cd.getColonne()).getPiece() != null)
 					{
 						return false;
 					}
@@ -105,7 +115,7 @@ public class Tour extends Pieces implements Piece {
 	
 	@Override
 	public boolean deplacementPossible(Echiquier plateau, Case cd, Case ca) {
-		return cheminLibre(plateau, cd, ca) && !(ca.equals(cd)) && cd.getPiece() != null; 
+		return cheminLibre(plateau, cd, ca) && !(ca.equals(cd)) && cd.getPiece() != null && (ca.caseVide() || (!ca.caseVide())); 
 	}
 
 

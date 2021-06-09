@@ -9,15 +9,14 @@ public class main {
 		
       Jeu game = new Jeu();
       game.entrerCoup();
-      while (!game.getEchiquier().mat("noir") || !game.getEchiquier().mat("blanc"))
-      {
-    	  game.setTurn("noir");
-    	  game.affichage();
-    	  game.entrerCoup();
+
     	  game.setTurn("blanc");
     	  game.affichage();
     	  game.entrerCoup();
+    	  while (game.getTurn() == "blanc") {
+    	  game.setTurn("blanc");
     	  game.affichage();
-      }
+    	  game.entrerCoup();
+    	  }
 	}
 }
