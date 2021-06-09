@@ -31,26 +31,40 @@ public class Reine extends Pieces implements Piece {
 
 		
 		/* Diagonale Haute Droite*/
-		if(ca.getLigne()>cd.getLigne() && ca.getColonne()>cd.getColonne()) {
-			if((Math.abs(ca.getColonne()-cd.getColonne())-(Math.abs(ca.getLigne()-cd.getLigne()))!=0))return false;
-				
-		for(int i=1;i<Math.abs(cd.getLigne())-ca.getLigne();i++) {
-				if(plateau.chercherCase(i+cd.getLigne(),i+cd.getColonne()).caseVide()==false) return false;
-				
-				
+		if (ca.getLigne()>cd.getLigne() && ca.getColonne()>cd.getColonne()) 
+		{
+			
+		for(int i=1;i<Math.abs(cd.getLigne()-ca.getLigne());i++){
+			if(i==Math.abs(cd.getLigne()-ca.getLigne())-1 && ca.getPiece().getCouleur()!=cd.getPiece().getCouleur()) {
+				return true;
+			}
+			if (plateau.chercherCase(i+cd.getLigne(),i+cd.getColonne()).caseVide()==false){
+					return false;
+				}
 		}
-		return true;
+
 		}
 
 		/* Diagonale Haut Gauche */
-		if(ca.getLigne()<cd.getLigne() && ca.getColonne()<cd.getColonne()) {
-			if((Math.abs(ca.getColonne()-cd.getColonne())-(Math.abs(ca.getLigne()-cd.getLigne()))!=0))return false;
+		if(ca.getLigne()<cd.getLigne() && ca.getColonne()<cd.getColonne())
+		{
+			if ((Math.abs(ca.getColonne()-cd.getColonne())-(Math.abs(ca.getLigne()-cd.getLigne()))!=0))
+			{
+				return false;
+			}
 
-		for(int i=1;i<Math.abs(cd.getLigne()-ca.getLigne());i++) {
-				if(plateau.chercherCase(cd.getLigne()-i,cd.getColonne()+i).caseVide()==false) return false;
+		for(int i=1;i<Math.abs(cd.getLigne()-ca.getLigne());i++) 
+		{
+			if(i==Math.abs(cd.getLigne()-ca.getLigne())-1 && ca.getPiece().getCouleur()!=cd.getPiece().getCouleur()) {
+				return true;
+			}
+				if (plateau.chercherCase(cd.getLigne()-i,cd.getColonne()+i).caseVide()==false) 
+				{
+					return false;
+				}
 
 		}
-		return true;
+			return true;
 		}
 
 		/* Diagonale Bas Droite */
@@ -58,6 +72,9 @@ public class Reine extends Pieces implements Piece {
 			if((Math.abs(ca.getColonne()-cd.getColonne())-(Math.abs(ca.getLigne()-cd.getLigne()))!=0))return false;
 
 		for(int i=1;i<Math.abs(cd.getLigne()-ca.getLigne());i++) {
+			if(i==Math.abs(cd.getLigne()-ca.getLigne())-1 && ca.getPiece().getCouleur()!=cd.getPiece().getCouleur()) {
+				return true;
+			}
 			if(plateau.chercherCase(cd.getLigne()+i,cd.getColonne()-i).caseVide()==false) return false;
 
 	        }
@@ -66,10 +83,13 @@ public class Reine extends Pieces implements Piece {
 
 		/* Diagonale Bas Gauche */
 		if(ca.getColonne() < cd.getColonne() && ca.getLigne() > cd.getLigne()){
-			if((Math.abs(ca.getColonne()-cd.getColonne())-(Math.abs(ca.getLigne()-cd.getLigne()))!=0))return false;
+			if((Math.abs(ca.getColonne()-cd.getColonne())-(Math.abs(ca.getLigne()-cd.getLigne()))!=0)) {return false;}
 
 		for(int i=1; i<Math.abs(cd.getLigne()-ca.getLigne());i++){
-			if(plateau.chercherCase(cd.getLigne()-i,cd.getColonne()-i).caseVide()==false)return false;
+			if(i==Math.abs(cd.getLigne()-ca.getLigne())-1 && ca.getPiece().getCouleur()!=cd.getPiece().getCouleur()) {
+				return true;
+			}
+			if(plateau.chercherCase(cd.getLigne()-i,cd.getColonne()-i).caseVide()==false) {return false;}
 
 		}
 		return true;
@@ -80,6 +100,9 @@ public class Reine extends Pieces implements Piece {
 		if(ca.getColonne()>cd.getColonne() &&  ca.getLigne()==cd.getLigne()) {
 			Case[] ld = new Case[Math.abs(cd.getColonne()-ca.getColonne())];
 			for(int i=1;i<Math.abs(cd.getColonne()-ca.getColonne());i++) {
+				if(i==Math.abs(cd.getColonne()-ca.getColonne())-1 && ca.getPiece().getCouleur()!=cd.getPiece().getCouleur()) {
+					return true;
+				}
 				if(plateau.chercherCase(cd.getLigne(),cd.getColonne()+i).caseVide()==false)return false;
 
 			}
@@ -91,6 +114,9 @@ public class Reine extends Pieces implements Piece {
 		if(ca.getColonne()<cd.getColonne() && ca.getLigne()==cd.getLigne()) {
 			Case[] lg = new Case[Math.abs(ca.getColonne()-cd.getColonne())];
 			for(int i=1;i<Math.abs(ca.getColonne()-cd.getColonne());i++) {
+				if(i==Math.abs(cd.getColonne()-ca.getColonne())-1 && ca.getPiece().getCouleur()!=cd.getPiece().getCouleur()) {
+					return true;
+				}
 				if(plateau.chercherCase(cd.getLigne(),cd.getColonne()-i).caseVide()==false)return false;
 
 			}
@@ -102,6 +128,9 @@ public class Reine extends Pieces implements Piece {
 		if(ca.getLigne()>cd.getLigne() && ca.getColonne()==cd.getLigne()) {
 			Case[] lh= new Case[Math.abs(ca.getLigne()-cd.getLigne())];
 			for(int i=1;i<Math.abs(ca.getLigne()-cd.getLigne());i++) {
+				if(i==Math.abs(cd.getColonne()-ca.getColonne())-1 && ca.getPiece().getCouleur()!=cd.getPiece().getCouleur()) {
+					return true;
+				}
 				if(plateau.chercherCase(cd.getLigne()+i,cd.getColonne()).caseVide()==false)return false;
 
 			}
@@ -113,6 +142,9 @@ public class Reine extends Pieces implements Piece {
 		if(ca.getLigne()<cd.getLigne() && ca.getColonne()==cd.getColonne()) {
 			Case[] lb = new Case[Math.abs(ca.getLigne()-cd.getLigne())];
 			for(int i=1;i<Math.abs(ca.getLigne()-cd.getLigne());i++) {
+				if(i==Math.abs(cd.getColonne()-ca.getColonne())-1 && ca.getPiece().getCouleur()!=cd.getPiece().getCouleur()) {
+					return true;
+				}
 				if(plateau.chercherCase(cd.getLigne()-i,cd.getColonne()).caseVide()==false)return false;
 
 			}
