@@ -110,11 +110,11 @@ public class Jeu {
     	int caLigne = this.conversion(ca)[1];
     	int caColonne = this.conversion(ca)[0];
     	
-    	while (this.echiquier.chercherCase(cdLigne, caColonne).getPiece().getCouleur() != this.turn || (!(this.echiquier.mat("blanc")) && this.turn == "noir") || (!(this.echiquier.mat("noir")) && this.turn == "blanc") || 
+    	while (this.echiquier.chercherCase(cdLigne, cdColonne).getPiece().getCouleur() != this.turn || (!(this.echiquier.mat("blanc")) && this.turn == "noir") || (!(this.echiquier.mat("noir")) && this.turn == "blanc") || 
     			(this.echiquier.deplacementValide(this.echiquier.chercherCase(cdLigne, cdColonne), this.echiquier.chercherCase(caLigne, caColonne))== false))
     	{
 
-    		if (this.echiquier.chercherCase(cdLigne, caColonne).getPiece().getCouleur() != this.turn)
+    		if (this.echiquier.chercherCase(cdLigne, cdColonne).getPiece().getCouleur() != this.turn)
     		{
     		System.out.println("Vous ne pouvez pas jouer les pièces ennemies !");
     		}

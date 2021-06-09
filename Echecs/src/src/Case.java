@@ -63,7 +63,8 @@ public class Case {
     {	
     	return piece.toString();
     }
-    return " ";
+    
+    return ".";
     }
     
     public boolean equals(Case o)
