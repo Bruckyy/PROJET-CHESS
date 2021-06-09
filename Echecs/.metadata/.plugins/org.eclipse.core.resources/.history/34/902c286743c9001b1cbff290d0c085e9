@@ -89,7 +89,7 @@ public class Reine extends Pieces implements Piece {
 		/* Ligne Droite */
 
 		if(ca.getColonne()>cd.getColonne() &&  ca.getLigne()==cd.getLigne()) {
-
+			Case[] ld = new Case[Math.abs(cd.getColonne()-ca.getColonne())];
 			for(int i=1;i<Math.abs(cd.getColonne()-ca.getColonne())-1;i++) {
 				
 				if(plateau.chercherCase(cd.getLigne(),cd.getColonne()+i).caseVide()==false)return false;
@@ -101,7 +101,7 @@ public class Reine extends Pieces implements Piece {
 		/* Ligne Gauche*/
 
 		if(ca.getColonne()<cd.getColonne() && ca.getLigne()==cd.getLigne()) {
-
+			Case[] lg = new Case[Math.abs(ca.getColonne()-cd.getColonne())];
 			for(int i=1;i<Math.abs(ca.getColonne()-cd.getColonne())-1;i++) {
 
 				if(plateau.chercherCase(cd.getLigne(),cd.getColonne()-i).caseVide()==false)return false;
@@ -113,7 +113,7 @@ public class Reine extends Pieces implements Piece {
 		/*Ligne Haut*/
 
 		if(ca.getLigne()>cd.getLigne() && ca.getColonne()==cd.getLigne()) {
-
+			Case[] lh= new Case[Math.abs(ca.getLigne()-cd.getLigne())];
 			for(int i=1;i<Math.abs(ca.getLigne()-cd.getLigne())-1;i++) {
 				if(plateau.chercherCase(cd.getLigne()+i,cd.getColonne()).caseVide()==false)return false;
 
@@ -124,7 +124,7 @@ public class Reine extends Pieces implements Piece {
 		/*Ligne Bas */
 
 		if(ca.getLigne()<cd.getLigne() && ca.getColonne()==cd.getColonne()) {
-			
+			Case[] lb = new Case[Math.abs(ca.getLigne()-cd.getLigne())];
 			for(int i=1;i<Math.abs(ca.getLigne()-cd.getLigne())-1;i++) {
 				if(plateau.chercherCase(cd.getLigne()-i,cd.getColonne()).caseVide()==false)return false;
 
