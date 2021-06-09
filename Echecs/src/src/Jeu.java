@@ -11,11 +11,27 @@ public class Jeu {
 
     private Echiquier echiquier;
     private String turn;
+    private boolean stop = true;
     private Scanner sc = new Scanner(System.in);
     
     public Jeu() {
     	this.init();
+    	this.setTurn("blanc");
     	this.affichage();
+    	this.entrerCoup();
+    	
+    	while (this.stop)
+    	{
+    		this.setTurn("noir");
+    		this.affichage();
+    		this.entrerCoup();
+    		this.setTurn("blanc");
+    		this.affichage();
+    		this.entrerCoup();
+    	}
+    	
+
+    	
     }
     
     public Jeu(Echiquier ech, String turn) {
@@ -68,18 +84,56 @@ public class Jeu {
     
     public void entrerCoup()
     {
-
+    	
     	System.out.println("Votre coup (cd,ca): ");
     	String coup = sc.nextLine();
+    	if (coup.contentEquals("q"))
+    	{
+    		this.stop = false;
+    		System.out.println("Partie terminée.");
+    	}
+    	else
+    	{
+    	
+    		
     	String cd = String.valueOf(coup.charAt(0)) + String.valueOf(coup.charAt(1));
     	String ca = String.valueOf(coup.charAt(3)) + String.valueOf(coup.charAt(4));
+    	
     	int cdLigne = this.conversion(cd)[1];
     	int cdColonne = this.conversion(cd)[0];
     	int caLigne = this.conversion(ca)[1];
     	int caColonne = this.conversion(ca)[0];
     	
+    	while (this.echiquier.chercherCase(cdLigne, caColonne).getPiece().getCouleur() != this.turn || !(this.echiquier.mat("blanc")) || !(this.echiquier.mat("noir")) || 
+    			(this.echiquier.deplacementValide(this.echiquier.chercherCase(cdLigne, cdColonne), this.echiquier.chercherCase(caLigne, caColonne))== false))
+    	{
+
+    		if (this.echiquier.chercherCase(cdLigne, caColonne).getPiece().getCouleur() != this.turn)
+    		{
+    		System.out.println("Vous ne pouvez pas jouer les pièces ennemies !");
+    		}
+    		
+    		if (!(this.echiquier.mat("blanc")) || !(this.echiquier.mat("noir")))
+    		{
+    		System.out.println("Vous êtes en échec ! Sortez de l'échec au roi.");
+    		}
+    		
+    		if ((this.echiquier.deplacementValide(this.echiquier.chercherCase(cdLigne, cdColonne), this.echiquier.chercherCase(caLigne, caColonne)))== false)
+    		{
+    			System.out.println("Coup illégal !");
+    		}
+    		System.out.println("Votre coup (cd,ca): ");
+    		coup = sc.nextLine();
+    		cd = String.valueOf(coup.charAt(0)) + String.valueOf(coup.charAt(1));
+        	ca = String.valueOf(coup.charAt(3)) + String.valueOf(coup.charAt(4));
+        	
+        	cdLigne = this.conversion(cd)[1];
+        	cdColonne = this.conversion(cd)[0];
+        	caLigne = this.conversion(ca)[1];
+        	caColonne = this.conversion(ca)[0];
+    	}
     	this.echiquier.deplacerPiece(this.echiquier.chercherCase(cdLigne, cdColonne), this.echiquier.chercherCase(caLigne, caColonne));  
-    
+    	}
     }
     
     public int[] conversion(String coupEntree)
@@ -131,40 +185,40 @@ public class Jeu {
     		ligne = br.readLine().split(" ");
     		while(ligne!=null) {
     			for(int j=1;j<(ligne.length)+1;j++) {
-    			if(ligne[i]=="♟") {
+    			if(ligne[i]=="â™Ÿ") {
     				Case a = new Case(i,j,new Pion("noir", "pion"));
     			}
-    			if(ligne[i]=="♙") {
+    			if(ligne[i]=="â™™") {
     				Case b = new Case(i,j,new Pion("blanc", "pion"));
     			}
-    			if(ligne[i]=="♜") {
+    			if(ligne[i]=="â™œ") {
     				Case c = new Case(i,j,new Tour("noir","tour"));
     			}
-    			if(ligne[i]=="♖") {
+    			if(ligne[i]=="â™–") {
     				Case d = new Case(i,j,new Tour("blanc","tour"));
     			}
-    			if(ligne[i]=="♞") {
+    			if(ligne[i]=="â™ž") {
     				Case e = new Case(i,j,new Cavalier("noir","cavalier"));
     			}
-    			if(ligne[i]=="♘") {
+    			if(ligne[i]=="â™˜") {
     				Case f = new Case(i,j,new Cavalier("blanc","cavalier"));
     			}
-    			if(ligne[i]=="♝") {
+    			if(ligne[i]=="â™�") {
     				Case g = new Case(i,j,new Fou("noir","fou"));
     			}
-    			if(ligne[i]=="♗") {
+    			if(ligne[i]=="â™—") {
     				Case h = new Case(i,j,new Fou("blanc","fou"));
     			}
-    			if(ligne[i]=="♛") {
+    			if(ligne[i]=="â™›") {
     				Case k = new Case(i,j,new Reine("noir","reine"));
     			}
-    			if(ligne[i]=="♕") {
+    			if(ligne[i]=="â™•") {
     				Case l = new Case(i,j,new Reine("blanc","reine"));
     			}
-    			if(ligne[i]=="♚") {
+    			if(ligne[i]=="â™š") {
     				Case m = new Case(i,j,new Roi("noir","roi"));
     			}
-    			if(ligne[i]=="♔") {
+    			if(ligne[i]=="â™”") {
     				Case n = new Case(i,j,new Roi("blanc","roi"));
     			}
     			else {

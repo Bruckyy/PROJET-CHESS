@@ -110,16 +110,16 @@ public class Echiquier {
     
     public void deplacerPiece(Case casePiece, Case ca)
     {
-    	if (casePiece.getPiece().deplacementPossible(this, casePiece, ca) && casePiece.getPiece() != null) 
+    	if (casePiece.getPiece().deplacementPossible(this, casePiece, ca)) 
     	{
     		ca.setPiece(casePiece.getPiece());
     		casePiece.setPiece(null);
     	}
-    	
-    	else
-    	{
-    		System.out.println("Dépalcement impossible !");
-    	}
+    }
+    
+    public boolean deplacementValide(Case casePiece, Case ca)
+    {
+    	return (casePiece.getPiece().deplacementPossible(this, casePiece, ca));
     }
     
     public void initVide()
@@ -205,7 +205,9 @@ public class Echiquier {
     
     
     public String toString() {
-    	String s = "    A	   B	  C	   D	   E	   F	   G	  H\n"
+    
+    	String s = "\"q\" pour quitter \n";
+    	s += "    A	   B	  C	   D	   E	   F	   G	  H\n"
     			+ "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n";
     	int j = 1;
 		for (int i = 0; i < this.board.size(); i ++)
