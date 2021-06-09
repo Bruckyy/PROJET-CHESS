@@ -10,6 +10,9 @@ public class Echiquier {
     
     public Echiquier(String mode)
     {
+    if (mode.contentEquals("charger")){
+    	
+    }
     if (mode.contentEquals("classique"))
     {
     	this.init();
@@ -40,6 +43,9 @@ public class Echiquier {
     public Echiquier(ArrayList<Case> c)
     {
     	this.board = c;
+    }
+    public Echiquier(Echiquier ech) {
+    	this.board=ech.getBoard();
     }
     
     
@@ -217,7 +223,7 @@ public class Echiquier {
     	this.initVide();
     	this.chercherCase(4, 4).setPiece(new Reine("blanc", "reine"));
     }
- 
+
     
     
     public String toString() {

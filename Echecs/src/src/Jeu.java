@@ -68,7 +68,12 @@ public class Jeu {
     	System.out.println("Choisissez votre mode de jeu : classique, berger (c/b).\n");
     	String mode = sc.nextLine();
     	
-    	
+    	if (mode.contentEquals("charger")) {
+    		System.out.println("Entrez le nom du fichier pour charger la partie (.txt)");
+    		String nomFichier = sc.nextLine();
+    		Echiquier ch_ech = this.restore(nomFichier);
+    		this.echiquier= new Echiquier(ch_ech);
+    	}
     	if (mode.contentEquals("c")) {
     		System.out.println("Vous avez choisi le mode classique.");
     	}
@@ -79,7 +84,7 @@ public class Jeu {
     	
     	this.echiquier = new Echiquier(mode);
     	this.turn = "blanc";
-  
+    	sc.close();
     }
     
     public void affichage()
