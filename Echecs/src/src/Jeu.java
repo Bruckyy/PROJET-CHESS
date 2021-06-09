@@ -1,4 +1,4 @@
-package main;
+package src;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -123,48 +123,55 @@ public class Jeu {
     	try {
     		BufferedReader br = Files.newBufferedReader(Paths.get(nomFichier));
     		String[] ligne;
-    		int i=0;
-    		Echiquier ech = new Echiquier(new ArrayList<Case>());
+    		int i=1;
+    		ArrayList<Case>
+    		Echiquier ech = new Echiquier(board);
     		String tour = br.readLine();
     		
     		ligne = br.readLine().split(" ");
     		while(ligne!=null) {
+    			for(int j=1;j<(ligne.length)+1;j++) {
     			if(ligne[i]=="♟") {
-    				Case c = new Case(2,3,new Pieces("blanc", "pion"));
+    				Case a = new Case(i,j,new Pion("noir", "pion"));
     			}
     			if(ligne[i]=="♙") {
-    				
+    				Case b = new Case(i,j,new Pion("blanc", "pion"));
     			}
     			if(ligne[i]=="♜") {
-    				
+    				Case c = new Case(i,j,new Tour("noir","tour"));
     			}
     			if(ligne[i]=="♖") {
-    				
+    				Case d = new Case(i,j,new Tour("blanc","tour"));
     			}
     			if(ligne[i]=="♞") {
-    				
+    				Case e = new Case(i,j,new Cavalier("noir","cavalier"));
     			}
     			if(ligne[i]=="♘") {
-    				
+    				Case f = new Case(i,j,new Cavalier("blanc","cavalier"));
     			}
     			if(ligne[i]=="♝") {
-    				
+    				Case g = new Case(i,j,new Fou("noir","fou"));
     			}
     			if(ligne[i]=="♗") {
-    				
+    				Case h = new Case(i,j,new Fou("blanc","fou"));
     			}
     			if(ligne[i]=="♛") {
-    				
+    				Case k = new Case(i,j,new Reine("noir","reine"));
     			}
     			if(ligne[i]=="♕") {
-    				
+    				Case l = new Case(i,j,new Reine("blanc","reine"));
     			}
     			if(ligne[i]=="♚") {
-    				
+    				Case m = new Case(i,j,new Roi("noir","roi"));
     			}
     			if(ligne[i]=="♔") {
-    				
+    				Case n = new Case(i,j,new Roi("blanc","roi"));
     			}
+    			else {
+    				Case v = new Case(i,j,null);
+    			}
+    			ligne = br.readLine().split(" ");
+    		}
     			i++;
     		}
     		
