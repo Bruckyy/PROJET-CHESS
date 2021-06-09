@@ -19,7 +19,6 @@ public abstract class Pieces implements Piece{
 	{
 		this.couleur = p.getCouleur();
 		this.nom = p.getNom();
-
 	}
 	
 	public String getCouleur()
