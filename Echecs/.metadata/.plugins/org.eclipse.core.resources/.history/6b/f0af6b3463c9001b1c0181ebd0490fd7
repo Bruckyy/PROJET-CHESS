@@ -112,7 +112,7 @@ public class Reine extends Pieces implements Piece {
 		
 		/*Ligne Haut*/
 
-		if(ca.getLigne()<cd.getLigne() && ca.getColonne()==cd.getColonne()) {
+		if(ca.getLigne()>cd.getLigne() && ca.getColonne()==cd.getLigne()) {
 
 			for(int i=1;i<Math.abs(ca.getLigne()-cd.getLigne())-1;i++) {
 				if(plateau.chercherCase(cd.getLigne()+i,cd.getColonne()).caseVide()==false)return false;
@@ -123,7 +123,7 @@ public class Reine extends Pieces implements Piece {
 		
 		/*Ligne Bas */
 
-		if(ca.getLigne()>cd.getLigne() && ca.getColonne()==cd.getColonne()) {
+		if(ca.getLigne()<cd.getLigne() && ca.getColonne()==cd.getColonne()) {
 			
 			for(int i=1;i<Math.abs(ca.getLigne()-cd.getLigne())-1;i++) {
 				if(plateau.chercherCase(cd.getLigne()-i,cd.getColonne()).caseVide()==false)return false;

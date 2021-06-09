@@ -184,59 +184,57 @@ public class Jeu {
     		BufferedReader br = Files.newBufferedReader(Paths.get(nomFichier));
     		String[] ligne;
     		int i=1;
-    		int j=1;
-    		int z=0;
-    		ArrayList<Case> board = new ArrayList<Case>();
+    		ArrayList<Case> board = null;
     		String tour = br.readLine();
     		
     		ligne = br.readLine().split(" ");
     		while(ligne!=null) {
-    			for(int o=0;j<(ligne.length);j++) {
-    			if(ligne[z]=="♟") {
+    			for(int j=1;j<(ligne.length)+1;j++) {
+    			if(ligne[i]=="♟") {
     				Case a = new Case(i,j,new Pion("noir", "pion"));
     				board.add(a);
     			}
-    			if(ligne[z]=="♙") {
+    			if(ligne[i]=="♙") {
     				Case b = new Case(i,j,new Pion("blanc", "pion"));
     				board.add(b);
     			}
-    			if(ligne[z]=="♜") {
+    			if(ligne[i]=="♜") {
     				Case c = new Case(i,j,new Tour("noir","tour"));
     				board.add(c);
     			}
-    			if(ligne[z]=="♖") {
+    			if(ligne[i]=="♖") {
     				Case d = new Case(i,j,new Tour("blanc","tour"));
     				board.add(d);
     			}
-    			if(ligne[z]=="♞") {
+    			if(ligne[i]=="♞") {
     				Case e = new Case(i,j,new Cavalier("noir","cavalier"));
     				board.add(e);
     			}
-    			if(ligne[z]=="♘") {
+    			if(ligne[i]=="♘") {
     				Case f = new Case(i,j,new Cavalier("blanc","cavalier"));
     				board.add(f);
     			}
-    			if(ligne[z]=="♝") {
+    			if(ligne[i]=="♝") {
     				Case g = new Case(i,j,new Fou("noir","fou"));
     				board.add(g);
     			}
-    			if(ligne[z]=="♗") {
+    			if(ligne[i]=="♗") {
     				Case h = new Case(i,j,new Fou("blanc","fou"));
     				board.add(h);
     			}
-    			if(ligne[z]=="♛") {
+    			if(ligne[i]=="♛") {
     				Case k = new Case(i,j,new Reine("noir","reine"));
     				board.add(k);
     			}
-    			if(ligne[z]=="♕") {
+    			if(ligne[i]=="♕") {
     				Case l = new Case(i,j,new Reine("blanc","reine"));
     				board.add(l);
     			}
-    			if(ligne[z]=="♚") {
+    			if(ligne[i]=="♚") {
     				Case m = new Case(i,j,new Roi("noir","roi"));
     				board.add(m);
     			}
-    			if(ligne[z]=="♔") {
+    			if(ligne[i]=="♔") {
     				Case n = new Case(i,j,new Roi("blanc","roi"));
     				board.add(n);
     			}
@@ -245,10 +243,8 @@ public class Jeu {
     				board.add(v);
     			}
     			ligne = br.readLine().split(" ");
-    			j++;
     		}
     			i++;
-    			z++;
     		}
     		Echiquier ech = new Echiquier(board);
     		br.close();
@@ -257,7 +253,6 @@ public class Jeu {
     	}catch(IOException e) {
     		System.err.println(e);
     	}
-		return null;
     }
     
 }
