@@ -1,6 +1,4 @@
 package src;
-import main.*;
-
 
 public class Roi extends Pieces implements Piece {
 	
@@ -30,7 +28,7 @@ public class Roi extends Pieces implements Piece {
 	public String toString()
 	{
 		if(this.getCouleur()=="noir") {
-			return "♛";
+			return "\u265a";
 		}
 		else {
 			return "♔";

@@ -1,5 +1,5 @@
 package src;
-import main.*;
+
 
 @SuppressWarnings("unused")
 public class Reine extends Pieces implements Piece {
@@ -158,7 +158,7 @@ public class Reine extends Pieces implements Piece {
 	
 	public String toString() {
 		if(this.getCouleur()=="noir") {
-			return "♛";
+			return "\u265B";
 		}
 		else {
 			return "♕";

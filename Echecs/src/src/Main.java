@@ -1,9 +1,8 @@
-package main;
+package src;
 
-import src.*;
 @SuppressWarnings("unused")
 
-public class main {
+public class Main {
 
 	public static void main(String[] args) {
 		

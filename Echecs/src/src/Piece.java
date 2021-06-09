@@ -1,6 +1,4 @@
-package main;
-
-
+package src;
 
 public interface Piece {
 

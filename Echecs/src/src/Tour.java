@@ -1,5 +1,4 @@
 package src;
-import main.*;
 
 
 public class Tour extends Pieces implements Piece {

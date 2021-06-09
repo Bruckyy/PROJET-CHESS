@@ -1,6 +1,4 @@
 package src;
-import main.*;
-
 
 public abstract class Pieces implements Piece{
 	

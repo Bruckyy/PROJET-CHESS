@@ -1,7 +1,4 @@
 package src;
-import main.Case;
-import main.Echiquier;
-import main.Piece;
 
 public class Fou extends Pieces implements Piece {
 	

@@ -1,6 +1,4 @@
-package main;
-
-import src.*;
+package src;
 
 @SuppressWarnings("unused")
 public class Case {

@@ -1,6 +1,5 @@
 package src;
-import main.*;
-import src.*;
+
 
 
 public class TestEchiquier {
