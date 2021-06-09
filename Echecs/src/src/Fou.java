@@ -34,13 +34,13 @@ public class Fou extends Pieces implements Piece {
 			return false;
 		}
 		
-		if ((Math.abs(ca.getColonne()-cd.getColonne()-ca.getLigne()-cd.getLigne()))!=0)
+		if ((Math.abs(ca.getColonne()-cd.getColonne())-Math.abs(ca.getLigne()-cd.getLigne()))!=0)
 		{
 			return false;
 		}
 
 		/* Diagonale Haute Droite*/
-		if (ca.getLigne()>cd.getLigne() && ca.getColonne()>cd.getColonne()) 
+		if (ca.getLigne()<cd.getLigne() && ca.getColonne()>cd.getColonne()) 
 		{
 			
 		for(int i=1;i<Math.abs(cd.getLigne()-ca.getLigne());i++){
@@ -95,10 +95,11 @@ public class Fou extends Pieces implements Piece {
 			if((Math.abs(ca.getColonne()-cd.getColonne())-(Math.abs(ca.getLigne()-cd.getLigne()))!=0)) {return false;}
 
 		for(int i=1; i<Math.abs(cd.getLigne()-ca.getLigne());i++){
+			
 			if(i==Math.abs(cd.getLigne()-ca.getLigne())-1 && ca.getPiece().getCouleur()!=cd.getPiece().getCouleur()) {
 				return true;
 			}
-			if(plateau.chercherCase(cd.getLigne()-i,cd.getColonne()-i).caseVide()==false) {return false;}
+			if(plateau.chercherCase(cd.getLigne()+i,cd.getColonne()-i).caseVide()==false) {return false;}
 
 		}
 		return true;
