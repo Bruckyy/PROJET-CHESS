@@ -48,7 +48,11 @@ public class Jeu {
     	
     	
     	if (mode.contentEquals("c")) {
-    	System.out.println("Vous avez choisi le mode classique.");
+    		System.out.println("Vous avez choisi le mode classique.");
+    	}
+    	
+    	if (mode.contentEquals("t")) {
+    		System.out.println("Vous avez choissi le mode pour la tour");
     	}
     	
     	this.echiquier = new Echiquier(mode);
