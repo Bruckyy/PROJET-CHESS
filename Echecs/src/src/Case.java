@@ -46,17 +46,6 @@ public class Case {
     {
     	return this.colonne;
     }
-    
-    /*	Setters	*/
-    public void setLigne(int p1) 
-    {
-    	this.ligne = p1;
-    }
-
-    public void setColonne(int p1) 
-    {
-    	this.colonne = p1;
-    }
 
     public Piece getPiece() 
     {

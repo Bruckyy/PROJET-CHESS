@@ -10,26 +10,36 @@ public class Echiquier {
     
     public Echiquier(String mode)
     {
-    if (mode.contentEquals("c"))
+    if (mode.contentEquals("classique"))
     {
     	this.init();
     }
     
-    if (mode.contentEquals("t"))
+    if (mode.contentEquals("tour"))
     {
     	this.initTour();
     }	
     
-    if (mode.contentEquals("f"))
+    if (mode.contentEquals("fou"))
     {
     	this.initFou();
     }
     
-    if (mode.contentEquals("cav"))
+    if (mode.contentEquals("cavalier"))
     {
     	this.initCavalier();
     }
     
+    if (mode.contentEquals("reine"))
+    {
+    	this.initReine();
+    }
+    
+    }
+    
+    public Echiquier(ArrayList<Case> c)
+    {
+    	this.board = c;
     }
     
     
@@ -200,6 +210,12 @@ public class Echiquier {
     {
     	this.initVide();
     	this.chercherCase(4, 4).setPiece(new Cavalier("blanc", "cavalier"));
+    }
+    
+    public void initReine()
+    {
+    	this.initVide();
+    	this.chercherCase(4, 4).setPiece(new Reine("blanc", "reine"));
     }
  
     

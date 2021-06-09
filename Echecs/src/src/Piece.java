@@ -6,19 +6,11 @@ public interface Piece {
     
     public void setCouleur(String newCouleur);
     
-    /* Cette méthode devrait être la même pour toutes
-     * tu peux la prendre dans Tour
-     */
-
-
-    /* La méthode cheminLibre permet de vérifier que le chemin emprunté par la case est
-     * LEGAL ET VIDE (utiliser .caseVide()
-     */
     public boolean cheminLibre(Echiquier plateau, Case cd, Case ca);
     
     public String toString();
 
 	public String getNom();
 
-	public boolean deplacementPossible(Echiquier echiquier, Case chercherCase, Case caseRoi);
+	public boolean deplacementPossible(Echiquier echiquier, Case cd, Case ca);
 }
