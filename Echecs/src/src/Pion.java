@@ -130,7 +130,7 @@ public class Pion extends Pieces implements Piece {
 	@Override
 	public boolean deplacementPossible(Echiquier plateau, Case cd, Case ca)
 	{
-		return cheminLibre(plateau, cd, ca) && !(ca.equals(cd)) && cd.getPiece() != null;
+		return cheminLibre(plateau, cd, ca) && !(ca.equals(cd)) && cd.getPiece() != null; 
 	}
 
 }

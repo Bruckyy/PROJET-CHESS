@@ -115,7 +115,7 @@ public class Tour extends Pieces implements Piece {
 	
 	@Override
 	public boolean deplacementPossible(Echiquier plateau, Case cd, Case ca) {
-		return cheminLibre(plateau, cd, ca) && !(ca.equals(cd)) && cd.getPiece() != null && (ca.caseVide() || (!ca.caseVide())); 
+		return cheminLibre(plateau, cd, ca) && !(ca.equals(cd)) && cd.getPiece() != null; 
 	}
 
 

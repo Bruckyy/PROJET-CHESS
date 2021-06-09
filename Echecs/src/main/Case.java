@@ -78,4 +78,13 @@ public class Case {
     }
     return " ";
     }
+    
+    public boolean equals(Case o)
+    {	
+    	if (this.getPiece() == null || o.getPiece() == null)
+    	{
+    		return false;
+    	}
+		return (this.getPiece().equals(o.getPiece()));
+    }
 }

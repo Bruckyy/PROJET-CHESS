@@ -22,7 +22,17 @@ public class Echiquier {
     {
     	this.initTour();
     }	
-
+    
+    if (mode.contentEquals("f"))
+    {
+    	this.initFou();
+    }
+    
+    if (mode.contentEquals("cav"))
+    {
+    	this.initCavalier();
+    }
+    
     }
     
     
@@ -115,27 +125,28 @@ public class Echiquier {
     	}
     }
     
+    public void initVide()
+    {
+        int j = 0;
+    	int l = 1;
+        while (j < 8)
+        {
+        	int i = 0;
+        	int c = 1;
+        	while (i < 8)
+        	{
+        		this.board.add(new Case(l, c, null));
+        		i ++;
+        		c ++;
+        	}
+        	l ++;
+        	j ++;
+        }
+    }
     
     public void init()
     {
-    	
-    int j = 0;
-	int l = 1;
-    while (j < 8)
-    {
-    	int i = 0;
-    	int c = 1;
-    	while (i < 8)
-    	{
-    		this.board.add(new Case(l, c, null));
-    		i ++;
-    		c ++;
-    	}
-    	l ++;
-    	j ++;
-    }
-    
-    
+    this.initVide();    
     this.chercherCase(1, 1).setPiece(new Tour("blanc", "tour"));
     this.chercherCase(1, 2).setPiece(new Cavalier("blanc", "cavalier"));
     this.chercherCase(1, 3).setPiece(new Fou("blanc", "fou"));
@@ -175,24 +186,23 @@ public class Echiquier {
     
     public void initTour()
     {
-    	 int j = 0;
-    		int l = 1;
-    	    while (j < 8)
-    	    {
-    	    	int i = 0;
-    	    	int c = 1;
-    	    	while (i < 8)
-    	    	{
-    	    		this.board.add(new Case(l, c, null));
-    	    		i ++;
-    	    		c ++;
-    	    	}
-    	    	l ++;
-    	    	j ++;
-    	    }
+    	this.initVide();    
     	    
     	    this.chercherCase(4, 4).setPiece(new Tour("blanc", "tour"));
     	    this.chercherCase(4, 5).setPiece(new Tour("noir", "tour"));;
+    }
+    
+    public void initFou()
+    {
+    	this.initVide();    
+ 	    
+ 	    this.chercherCase(4, 4).setPiece(new Fou("blanc", "fou"));
+    }
+    
+    public void initCavalier()
+    {
+    	this.initVide();
+    	this.chercherCase(4, 4).setPiece(new Cavalier("blanc", "cavalier"));
     }
  
     

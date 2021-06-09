@@ -43,34 +43,34 @@ public class Fou extends Pieces implements Piece {
 		if (ca.getLigne()<cd.getLigne() && ca.getColonne()>cd.getColonne()) 
 		{
 			
-		for(int i=1;i<Math.abs(cd.getLigne()-ca.getLigne());i++){
-			if(i==Math.abs(cd.getLigne()-ca.getLigne())-1 && ca.getPiece().getCouleur()!=cd.getPiece().getCouleur()) {
+		for (int i=1;i<Math.abs(cd.getLigne()-ca.getLigne());i++)
+		{
+			if (i==Math.abs(cd.getLigne()-ca.getLigne())-1 && !(ca.getPiece().equals(cd.getPiece()))) 
+			{
 				return true;
 			}
-			if (plateau.chercherCase(i+cd.getLigne(),i+cd.getColonne()).caseVide()==false){
+			
+			if (plateau.chercherCase(i+cd.getLigne(),i+cd.getColonne()).caseVide()==false)
+			{
 					return false;
-				}
+			}
 		}
+		return true;
 
 		}
 
 		/* Diagonale Haut Gauche */
 		if(ca.getLigne()<cd.getLigne() && ca.getColonne()<cd.getColonne())
 		{
-			if ((Math.abs(ca.getColonne()-cd.getColonne())-(Math.abs(ca.getLigne()-cd.getLigne()))!=0))
+
+
+		for (int i=1;i<Math.abs(cd.getLigne()-ca.getLigne());i++) 
+		{
+			
+			if (plateau.chercherCase(cd.getLigne()-i,cd.getColonne()+i).caseVide()==false) 
 			{
 				return false;
 			}
-
-		for(int i=1;i<Math.abs(cd.getLigne()-ca.getLigne());i++) 
-		{
-			if(i==Math.abs(cd.getLigne()-ca.getLigne())-1 && ca.getPiece().getCouleur()!=cd.getPiece().getCouleur()) {
-				return true;
-			}
-				if (plateau.chercherCase(cd.getLigne()-i,cd.getColonne()+i).caseVide()==false) 
-				{
-					return false;
-				}
 
 		}
 			return true;

@@ -11,7 +11,7 @@ public interface Piece {
     /* Cette méthode devrait être la même pour toutes
      * tu peux la prendre dans Tour
      */
-    public boolean deplacementPossible(Echiquier plateau,Case cd, Case ca);
+
 
     /* La méthode cheminLibre permet de vérifier que le chemin emprunté par la case est
      * LEGAL ET VIDE (utiliser .caseVide()
@@ -21,4 +21,6 @@ public interface Piece {
     public String toString();
 
 	public String getNom();
+
+	public boolean deplacementPossible(Echiquier echiquier, Case chercherCase, Case caseRoi);
 }
