@@ -40,13 +40,8 @@ public class Fou extends Pieces implements Piece {
 		if (ca.getLigne()<cd.getLigne() && ca.getColonne()>cd.getColonne()) 
 		{
 			
-		for (int i=1;i<Math.abs(cd.getLigne()-ca.getLigne());i++)
+		for (int i=1;i<Math.abs(cd.getLigne()-ca.getLigne())-1;i++)
 		{
-			if (i==Math.abs(cd.getLigne()-ca.getLigne())-1 && !(ca.getPiece().equals(cd.getPiece()))) 
-			{
-				return true;
-			}
-			
 			if (plateau.chercherCase(i+cd.getLigne(),i+cd.getColonne()).caseVide()==false)
 			{
 					return false;
@@ -61,10 +56,10 @@ public class Fou extends Pieces implements Piece {
 		{
 
 
-		for (int i=1;i<Math.abs(cd.getLigne()-ca.getLigne());i++) 
+		for (int i=1;i<Math.abs(cd.getLigne()-ca.getLigne())-1;i++) 
 		{
 			
-			if (plateau.chercherCase(cd.getLigne()-i,cd.getColonne()+i).caseVide()==false) 
+			if (plateau.chercherCase(cd.getLigne()-i,cd.getColonne()-i).caseVide()==false) 
 			{
 				return false;
 			}
@@ -74,13 +69,11 @@ public class Fou extends Pieces implements Piece {
 		}
 
 		/* Diagonale Bas Droite */
-		if(ca.getColonne() > cd.getColonne() && ca.getLigne() < cd.getLigne()){
-			if((Math.abs(ca.getColonne()-cd.getColonne())-(Math.abs(ca.getLigne()-cd.getLigne()))!=0))return false;
+		if(ca.getColonne() > cd.getColonne() && ca.getLigne() > cd.getLigne()){
+			
 
-		for(int i=1;i<Math.abs(cd.getLigne()-ca.getLigne());i++) {
-			if(i==Math.abs(cd.getLigne()-ca.getLigne())-1 && ca.getPiece().getCouleur()!=cd.getPiece().getCouleur()) {
-				return true;
-			}
+		for(int i=1;i<Math.abs(cd.getLigne()-ca.getLigne())-1;i++) {
+
 			if(plateau.chercherCase(cd.getLigne()+i,cd.getColonne()-i).caseVide()==false) return false;
 
 	        }
@@ -91,11 +84,8 @@ public class Fou extends Pieces implements Piece {
 		if(ca.getColonne() < cd.getColonne() && ca.getLigne() > cd.getLigne()){
 			if((Math.abs(ca.getColonne()-cd.getColonne())-(Math.abs(ca.getLigne()-cd.getLigne()))!=0)) {return false;}
 
-		for(int i=1; i<Math.abs(cd.getLigne()-ca.getLigne());i++){
-			
-			if(i==Math.abs(cd.getLigne()-ca.getLigne())-1 && ca.getPiece().getCouleur()!=cd.getPiece().getCouleur()) {
-				return true;
-			}
+		for(int i=1; i<Math.abs(cd.getLigne()-ca.getLigne())-1;i++){
+
 			if(plateau.chercherCase(cd.getLigne()+i,cd.getColonne()-i).caseVide()==false) {return false;}
 
 		}
