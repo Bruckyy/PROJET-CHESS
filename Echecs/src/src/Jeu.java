@@ -179,61 +179,75 @@ public class Jeu {
             System.err.println(e);
         }
     }
-    public Jeu restore(String nomFichier) {
+    public Echiquier restore(String nomFichier) {
     	try {
     		BufferedReader br = Files.newBufferedReader(Paths.get(nomFichier));
     		String[] ligne;
     		int i=1;
-    		ArrayList<Case>
+    		ArrayList<Case> board;
     		Echiquier ech = new Echiquier(board);
     		String tour = br.readLine();
     		
     		ligne = br.readLine().split(" ");
     		while(ligne!=null) {
     			for(int j=1;j<(ligne.length)+1;j++) {
-    			if(ligne[i]=="Ã¢â„¢Å¸") {
+    			if(ligne[i]=="♟") {
     				Case a = new Case(i,j,new Pion("noir", "pion"));
+    				board.add(a);
     			}
-    			if(ligne[i]=="Ã¢â„¢â„¢") {
+    			if(ligne[i]=="♙") {
     				Case b = new Case(i,j,new Pion("blanc", "pion"));
+    				board.add(b);
     			}
-    			if(ligne[i]=="Ã¢â„¢Å“") {
+    			if(ligne[i]=="♜") {
     				Case c = new Case(i,j,new Tour("noir","tour"));
+    				board.add(c);
     			}
-    			if(ligne[i]=="Ã¢â„¢â€“") {
+    			if(ligne[i]=="♖") {
     				Case d = new Case(i,j,new Tour("blanc","tour"));
+    				board.add(d);
     			}
-    			if(ligne[i]=="Ã¢â„¢Å¾") {
+    			if(ligne[i]=="♞") {
     				Case e = new Case(i,j,new Cavalier("noir","cavalier"));
+    				board.add(e);
     			}
-    			if(ligne[i]=="Ã¢â„¢Ëœ") {
+    			if(ligne[i]=="♘") {
     				Case f = new Case(i,j,new Cavalier("blanc","cavalier"));
+    				board.add(f);
     			}
-    			if(ligne[i]=="Ã¢â„¢ï¿½") {
+    			if(ligne[i]=="♝") {
     				Case g = new Case(i,j,new Fou("noir","fou"));
+    				board.add(g);
     			}
-    			if(ligne[i]=="Ã¢â„¢â€”") {
+    			if(ligne[i]=="♗") {
     				Case h = new Case(i,j,new Fou("blanc","fou"));
+    				board.add(h);
     			}
-    			if(ligne[i]=="Ã¢â„¢â€º") {
+    			if(ligne[i]=="♛") {
     				Case k = new Case(i,j,new Reine("noir","reine"));
+    				board.add(k);
     			}
-    			if(ligne[i]=="Ã¢â„¢â€¢") {
+    			if(ligne[i]=="♕") {
     				Case l = new Case(i,j,new Reine("blanc","reine"));
+    				board.add(l);
     			}
-    			if(ligne[i]=="Ã¢â„¢Å¡") {
+    			if(ligne[i]=="♚") {
     				Case m = new Case(i,j,new Roi("noir","roi"));
+    				board.add(m);
     			}
-    			if(ligne[i]=="Ã¢â„¢â€�") {
+    			if(ligne[i]=="♔") {
     				Case n = new Case(i,j,new Roi("blanc","roi"));
+    				board.add(n);
     			}
     			else {
     				Case v = new Case(i,j,null);
+    				board.add(v);
     			}
     			ligne = br.readLine().split(" ");
     		}
     			i++;
     		}
+    		br.close();
     		
     	}catch(IOException e) {
     		System.err.println(e);
