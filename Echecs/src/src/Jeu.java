@@ -22,12 +22,18 @@ public class Jeu {
     	
     	while (this.stop)
     	{
+    		if (this.stop)
+    		{
     		this.setTurn("noir");
     		this.affichage();
     		this.entrerCoup();
+    		}
+    		if (this.stop)
+    		{
     		this.setTurn("blanc");
     		this.affichage();
     		this.entrerCoup();
+    		}
     	}
     	
 
